@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MathSpatial | Large-Scale Benchmark for Mathematical Spatial Reasoning</title>
-  <meta name="description" content="MathSpatial: the first large-scale dataset ecosystem with 10K problems and 26K geometric diagrams for evaluating mathematical spatial reasoning in Multimodal Large Language Models. ACM Multimedia 2026.">
-  <meta name="keywords" content="MathSpatial, spatial reasoning, benchmark, dataset, MLLM, multimodal, ACM Multimedia, geometric reasoning">
-  <meta property="og:title" content="MathSpatial Benchmark">
-  <meta property="og:description" content="10K problems, 26K diagrams, 16+ models evaluated. The first large-scale benchmark for mathematical spatial reasoning.">
+  <title>MathSpatial | 数学空间推理大规模基准与数据集</title>
+  <meta name="description" content="MathSpatial：首个包含约 1 万道题与 2.6 万余幅几何示意图的大规模数据集生态，用于评测多模态大模型（MLLM）的数学空间推理能力。ACM Multimedia 2026。">
+  <meta name="keywords" content="MathSpatial, 空间推理, 基准, 数据集, MLLM, 多模态, ACM Multimedia, 几何推理">
+  <meta property="og:title" content="MathSpatial 基准">
+  <meta property="og:description" content="1 万道题、2.6 万+示意图、16+ 模型评测。首个数学空间推理大规模基准。">
   <meta property="og:type" content="website">
   <link rel="alternate" hreflang="en" href="index.html">
   <link rel="alternate" hreflang="zh-Hans" href="index_zh.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="static/css/style.css">
 </head>
-<body>
+<body class="lang-zh">
 
 <!-- ====== Landing Splash ====== -->
 <div id="splash" style="position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#0b0e1a 0%,#1a1a3e 50%,#3a0ca3 100%); cursor:pointer; transition:opacity 0.6s ease;" onclick="this.style.opacity='0'; setTimeout(()=>this.style.display='none',600);">
@@ -26,13 +26,13 @@
       <span style="background:linear-gradient(90deg,#4361ee,#4cc9f0,#f72585);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">MathSpatial</span>
     </div>
     <p style="font-size:1.2rem; color:rgba(255,255,255,0.7); margin-bottom:8px;">
-      Benchmarking Mathematical Spatial Reasoning of MLLMs
+      评测多模态大模型的数学空间推理能力
     </p>
     <p style="font-size:0.9rem; color:rgba(255,255,255,0.4); margin-bottom:32px;">
-      ACM Multimedia 2026 &mdash; Dataset Track
+      ACM Multimedia 2026 — 数据集方向
     </p>
     <div style="display:inline-flex; align-items:center; gap:8px; padding:12px 32px; border:2px solid rgba(255,255,255,0.3); border-radius:40px; font-size:1rem; color:rgba(255,255,255,0.8); transition:all 0.3s;">
-      <span>Enter Site</span>
+      <span>进入站点</span>
       <i class="fas fa-arrow-right" style="font-size:0.9rem;"></i>
     </div>
   </div>
@@ -45,20 +45,20 @@
       <span class="logo-math">Math</span><span class="logo-spatial">Spatial</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#statistics">Statistics</a></li>
-      <li><a href="#examples">Examples</a></li>
-      <li><a href="#leaderboard">Leaderboard</a></li>
-      <li><a href="#findings">Findings</a></li>
-      <li><a href="#error-analysis">Error Analysis</a></li>
-      <li><a href="#annotations">Annotations</a></li>
-      <li><a href="#download">Download</a></li>
-      <li><a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank" class="nav-cta"><i class="fas fa-database"></i> Dataset</a></li>
+      <li><a href="#overview">概览</a></li>
+      <li><a href="#statistics">统计</a></li>
+      <li><a href="#examples">示例</a></li>
+      <li><a href="#leaderboard">榜单</a></li>
+      <li><a href="#findings">主要发现</a></li>
+      <li><a href="#error-analysis">错误分析</a></li>
+      <li><a href="#annotations">标注</a></li>
+      <li><a href="#download">下载</a></li>
+      <li><a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank" class="nav-cta"><i class="fas fa-database"></i> 数据集</a></li>
     </ul>
-    <div class="lang-switch" role="navigation" aria-label="Language">
-      <span class="lang-active">EN</span>
+    <div class="lang-switch" role="navigation" aria-label="语言">
+      <a href="index.html" hreflang="en" lang="en">EN</a>
       <span class="lang-sep" aria-hidden="true">|</span>
-      <a href="index_zh.html" hreflang="zh-Hans" lang="zh-Hans">中文</a>
+      <span class="lang-active">中文</span>
     </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
       <i class="fas fa-bars"></i>
@@ -71,28 +71,28 @@
   <canvas id="particles-canvas"></canvas>
   <div class="container hero-content">
     <div class="hero-label">
-      <span class="label-icon">&#127942;</span> ACM Multimedia 2026 &mdash; Dataset Track
+      <span class="label-icon">&#127942;</span> ACM Multimedia 2026 — 数据集方向
     </div>
     <h1>
       <span class="gradient-text">MathSpatial</span>
     </h1>
     <p class="subtitle">
-      The First Large-Scale Dataset Ecosystem for Evaluating
-      <strong>Mathematical Spatial Reasoning</strong> in Multimodal Large Language Models
+      面向多模态大语言模型<strong>数学空间推理</strong>评测的
+      首个大规模数据集生态
     </p>
 
     <div class="hero-badges">
-      <span class="hero-badge b-blue"><i class="fas fa-puzzle-piece"></i> 10,000 Problems</span>
-      <span class="hero-badge b-green"><i class="fas fa-image"></i> 26,145 Diagrams</span>
-      <span class="hero-badge b-orange"><i class="fas fa-sitemap"></i> 3 &times; 11 Categories</span>
-      <span class="hero-badge b-red"><i class="fas fa-robot"></i> 16+ Models</span>
+      <span class="hero-badge b-blue"><i class="fas fa-puzzle-piece"></i> 10,000 道题</span>
+      <span class="hero-badge b-green"><i class="fas fa-image"></i> 26,145 幅示意图</span>
+      <span class="hero-badge b-orange"><i class="fas fa-sitemap"></i> 3 &times; 11 类任务</span>
+      <span class="hero-badge b-red"><i class="fas fa-robot"></i> 16+ 个模型</span>
       <span class="hero-badge b-gray"><i class="fas fa-scale-balanced"></i> CC BY-NC-SA 4.0</span>
     </div>
 
     <div class="hero-buttons">
       <a class="btn btn-github" href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> GitHub</a>
       <a class="btn btn-hf" href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank"><span style="font-size:1.1rem">&#129303;</span> HuggingFace</a>
-      <a class="btn btn-outline-light" href="#leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a>
+      <a class="btn btn-outline-light" href="#leaderboard"><i class="fas fa-trophy"></i> 榜单</a>
     </div>
 
     <p class="hero-team">
@@ -104,16 +104,16 @@
 <!-- ====== Overview ====== -->
 <section class="section section-gradient" id="overview">
   <div class="container">
-    <h2 class="section-title animate-on-scroll">Overview</h2>
+    <h2 class="section-title animate-on-scroll">概览</h2>
     <p class="section-desc animate-on-scroll">
-      MathSpatial provides 10,000 problems with 26,000+ geometric diagrams, covering tasks from multi-view recognition to geometric property calculation. It is the first open dataset ecosystem dedicated to mathematical spatial reasoning in MLLMs.
+      MathSpatial 提供 10,000 道题与 26,000+ 幅几何示意图，涵盖从多视图识别到几何属性计算等任务，是首个面向 MLLM 数学空间推理的开放数据集生态。
     </p>
 
     <div class="img-showcase animate-on-scroll">
-      <img src="static/images/overview.png?v=1775455884" alt="MathSpatial Overview" loading="lazy">
+      <img src="static/images/overview.png?v=1775455884" alt="MathSpatial 概览" loading="lazy">
       <p class="img-caption">
-        <strong>Left:</strong> Humans achieve over 95% accuracy on MathSpatial-Bench while most MLLMs remain below 60%.
-        <strong>Right:</strong> Three core challenges and how MathSpatial addresses them.
+        <strong>左：</strong>人类在 MathSpatial-Bench 上准确率超过 95%，而多数 MLLM 仍低于 60%。
+        <strong>右：</strong>三大核心挑战及 MathSpatial 的应对思路。
       </p>
     </div>
 
@@ -122,22 +122,22 @@
       <div class="stat-card">
         <div class="stat-icon blue"><i class="fas fa-puzzle-piece"></i></div>
         <div class="stat-number" data-count="10000">10,000</div>
-        <div class="stat-label">Total Problems</div>
+        <div class="stat-label">总题量</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon green"><i class="fas fa-image"></i></div>
         <div class="stat-number" data-count="26145">26,145</div>
-        <div class="stat-label">Geometric Diagrams</div>
+        <div class="stat-label">几何示意图</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon orange"><i class="fas fa-layer-group"></i></div>
         <div class="stat-number">2.6</div>
-        <div class="stat-label">Avg Images / Problem</div>
+        <div class="stat-label">平均每题图像数</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon red"><i class="fas fa-user-check"></i></div>
         <div class="stat-number">96.3%</div>
-        <div class="stat-label">Human Accuracy</div>
+        <div class="stat-label">人类准确率</div>
       </div>
     </div>
 
@@ -145,21 +145,21 @@
     <div class="components-grid animate-on-scroll">
       <div class="component-card">
         <div class="card-icon bench"><i class="fas fa-clipboard-check"></i></div>
-        <span class="card-stat bench">Evaluation</span>
+        <span class="card-stat bench">评测</span>
         <h3>MathSpatial-Bench</h3>
-        <p>2,000 problems with 5,837 images for rigorous diagnostic evaluation with calibrated difficulty across 3 categories and 11 subtypes.</p>
+        <p>2,000 道题、5,837 幅图，用于严格诊断式评测，在 3 大类 11 子类上校准难度。</p>
       </div>
       <div class="component-card">
         <div class="card-icon corpus"><i class="fas fa-database"></i></div>
-        <span class="card-stat corpus">Training</span>
+        <span class="card-stat corpus">训练</span>
         <h3>MathSpatial-Corpus</h3>
-        <p>8,000 problems with 20,308+ images for training with verified solutions. Sourced from authentic educational materials spanning K-12 levels.</p>
+        <p>8,000 道题、20,308+ 幅图，附校验过的解答，取材于覆盖 K–12 的真实教辅材料。</p>
       </div>
       <div class="component-card">
         <div class="card-icon srt"><i class="fas fa-project-diagram"></i></div>
-        <span class="card-stat srt">Annotations</span>
-        <h3>Structured Reasoning Traces</h3>
-        <p>10,000 structured reasoning traces following the Correlate &rarr; Constrain &rarr; Infer paradigm for interpretable intermediate supervision.</p>
+        <span class="card-stat srt">标注</span>
+        <h3>结构化推理轨迹（SRT）</h3>
+        <p>10,000 条结构化推理轨迹，遵循「关联 &rarr; 约束 &rarr; 推断」范式，提供可解释的中间监督。</p>
       </div>
     </div>
   </div>
@@ -168,49 +168,49 @@
 <!-- ====== Statistics ====== -->
 <section class="section section-alt" id="statistics">
   <div class="container">
-    <h2 class="section-title animate-on-scroll">Dataset <span class="highlight">Statistics</span></h2>
+    <h2 class="section-title animate-on-scroll">数据集<span class="highlight">统计</span></h2>
     <p class="section-desc animate-on-scroll">
-      3 main categories &times; 11 subtypes covering representative tasks in mathematical spatial reasoning education.
+      3 大任务类别 &times; 11 种子类型，覆盖数学空间推理教育中的代表性任务。
     </p>
 
     <div class="img-showcase animate-on-scroll">
-      <img src="static/images/fig_sunburst.png?v=1775455884" alt="Taxonomy" style="max-width:600px;" loading="lazy">
+      <img src="static/images/fig_sunburst.png?v=1775455884" alt="任务分类" style="max-width:600px;" loading="lazy">
       <p class="img-caption">
-        MathSpatial-Bench: 3 main categories &times; 11 subtypes. Holistic Recognition (518), Generative Inference (636), and Abstract Deduction (846).
+        MathSpatial-Bench：3 大类 &times; 11 子类。整体识别（518）、生成式推理（636）与抽象演绎（846）。
       </p>
     </div>
 
     <div class="img-showcase animate-on-scroll">
-      <img src="static/images/fig_combined_stats.png?v=1775455884" alt="Combined Statistics" loading="lazy">
+      <img src="static/images/fig_combined_stats.png?v=1775455884" alt="综合统计" loading="lazy">
       <p class="img-caption">
-        (a) Category distribution across Bench &amp; Corpus. (b) Subcategory breakdown.
-        (c) 58% multiple-choice, 42% fill-in-blank for Bench. (d) Balanced A/B/C/D answer distribution.
+        （a）Bench 与 Corpus 的类别分布。（b）子类细分。
+        （c）Bench 中 58% 选择题、42% 填空题。（d）A/B/C/D 答案分布均衡。
       </p>
     </div>
 
     <div class="two-col animate-on-scroll" style="margin-top:48px;">
       <div class="img-showcase">
-        <img src="static/images/fig_bench_corpus_comparison.png?v=1775455884" alt="Bench vs Corpus" loading="lazy">
-        <p class="img-caption">Bench vs. Corpus comparison across categories.</p>
+        <img src="static/images/fig_bench_corpus_comparison.png?v=1775455884" alt="Bench 与 Corpus 对比" loading="lazy">
+        <p class="img-caption">各类别上 Bench 与 Corpus 的对比。</p>
       </div>
       <div class="img-showcase">
-        <img src="static/images/fig_images_text_stats.png?v=1775455884" alt="Image and Text Stats" loading="lazy">
-        <p class="img-caption">Image count per problem and question length distributions.</p>
+        <img src="static/images/fig_images_text_stats.png?v=1775455884" alt="图像与文本统计" loading="lazy">
+        <p class="img-caption">每题图像数量与题干长度分布。</p>
       </div>
     </div>
 
-    <h3 class="section-title animate-on-scroll" style="font-size:1.5rem; margin-top:56px;">Benchmark Comparison</h3>
-    <p class="section-desc animate-on-scroll">MathSpatial vs. existing benchmarks in mathematical and spatial reasoning.</p>
+    <h3 class="section-title animate-on-scroll" style="font-size:1.5rem; margin-top:56px;">与现有基准对比</h3>
+    <p class="section-desc animate-on-scroll">MathSpatial 与数学及空间推理领域已有基准的对比。</p>
     <div class="comparison-wrapper animate-on-scroll">
       <table class="comparison-table">
         <thead>
           <tr>
-            <th>Dataset</th>
-            <th>#Tasks</th>
-            <th>#Samples</th>
-            <th>Bilingual</th>
-            <th>Spatial Focus</th>
-            <th>Train Set</th>
+            <th>数据集</th>
+            <th>任务数</th>
+            <th>样本量</th>
+            <th>双语</th>
+            <th>空间侧重</th>
+            <th>训练集</th>
           </tr>
         </thead>
         <tbody>
@@ -271,16 +271,16 @@
 <!-- ====== Examples ====== -->
 <section class="section" id="examples">
   <div class="container">
-    <h2 class="section-title animate-on-scroll">Task <span class="highlight">Examples</span></h2>
+    <h2 class="section-title animate-on-scroll">任务<span class="highlight">示例</span></h2>
     <p class="section-desc animate-on-scroll">
-      Examples from three main categories: Holistic Recognition, Generative Inference, and Abstract Deduction.
+      来自三大任务类别的示例：整体识别、生成式推理与抽象演绎。
     </p>
     <div class="img-showcase animate-on-scroll">
-      <img src="static/images/examples.png?v=1775455884" alt="Task Examples" loading="lazy">
+      <img src="static/images/examples.png?v=1775455884" alt="任务示例" loading="lazy">
       <p class="img-caption">
-        <strong>Holistic Recognition:</strong> matching 3D objects to views.
-        <strong>Generative Inference:</strong> completing missing views.
-        <strong>Abstract Deduction:</strong> calculating geometric properties.
+        <strong>整体识别：</strong>将三维物体与视图匹配。
+        <strong>生成式推理：</strong>补全缺失视图。
+        <strong>抽象演绎：</strong>计算几何量。
       </p>
     </div>
 
@@ -290,20 +290,20 @@
 <!-- ====== Leaderboard ====== -->
 <section class="section section-dark" id="leaderboard">
   <div class="container">
-    <h2 class="section-title animate-on-scroll" style="color:#fff;">&#127942; <span class="highlight">Leaderboard</span></h2>
+    <h2 class="section-title animate-on-scroll" style="color:#fff;">&#127942; <span class="highlight">榜单</span></h2>
     <p class="section-desc animate-on-scroll">
-      Overall accuracy on MathSpatial-Bench. Humans achieve 96.3% while the best MLLM (GPT-5) reaches only 58.5%.
+      MathSpatial-Bench 上的总体准确率：人类为 96.3%，当前最强 MLLM（GPT-5）仅为 58.5%。
     </p>
 
     <div class="img-showcase animate-on-scroll" style="margin-bottom:48px;">
-      <img src="static/images/fig_radar_models.png?v=1775455884" alt="Radar Chart" style="max-width:560px; border-radius:16px;" loading="lazy">
+      <img src="static/images/fig_radar_models.png?v=1775455884" alt="雷达图" style="max-width:560px; border-radius:16px;" loading="lazy">
     </div>
 
     <div class="leaderboard-controls animate-on-scroll">
-      <button class="lb-filter active" data-filter="all">All Models</button>
-      <button class="lb-filter" data-filter="closed">Closed-Source</button>
-      <button class="lb-filter" data-filter="open">Open-Source</button>
-      <button class="lb-filter" data-filter="ours">Our Models</button>
+      <button class="lb-filter active" data-filter="all">全部模型</button>
+      <button class="lb-filter" data-filter="closed">闭源</button>
+      <button class="lb-filter" data-filter="open">开源</button>
+      <button class="lb-filter" data-filter="ours">我们的模型</button>
     </div>
 
     <div class="leaderboard-wrapper animate-on-scroll">
@@ -311,19 +311,19 @@
         <thead>
           <tr>
             <th class="rank">#</th>
-            <th>Model</th>
-            <th>Type</th>
-            <th>Overall</th>
-            <th>Best Subtype</th>
-            <th>Worst Subtype</th>
-            <th>Avg Tokens</th>
+            <th>模型</th>
+            <th>类型</th>
+            <th>总体</th>
+            <th>最佳子类</th>
+            <th>最差子类</th>
+            <th>平均 Token</th>
           </tr>
         </thead>
         <tbody>
           <tr class="human-row" data-type="human">
             <td class="rank">&mdash;</td>
-            <td class="model-name"><i class="fas fa-user" style="margin-right:6px;color:#06d6a0;"></i>Human</td>
-            <td><span class="type-badge type-human">Human</span></td>
+            <td class="model-name"><i class="fas fa-user" style="margin-right:6px;color:#06d6a0;"></i>人类</td>
+            <td><span class="type-badge type-human">人类</span></td>
             <td class="highlight-val">96.3%</td>
             <td>C3M (100%)</td>
             <td>3VM (89.4%)</td>
@@ -332,7 +332,7 @@
           <tr data-type="closed">
             <td class="rank rank-1">&#129351; 1</td>
             <td class="model-name">GPT-5</td>
-            <td><span class="type-badge type-closed">Closed</span></td>
+            <td><span class="type-badge type-closed">闭源</span></td>
             <td class="highlight-val">58.5%</td>
             <td>PRA (71.7%)</td>
             <td>C3M (28.6%)</td>
@@ -341,7 +341,7 @@
           <tr data-type="closed">
             <td class="rank rank-2">&#129352; 2</td>
             <td class="model-name">Gemini-2.5-flash</td>
-            <td><span class="type-badge type-closed">Closed</span></td>
+            <td><span class="type-badge type-closed">闭源</span></td>
             <td>48.5%</td>
             <td>MVC (58.5%)</td>
             <td>FPBI (25.0%)</td>
@@ -350,7 +350,7 @@
           <tr data-type="closed">
             <td class="rank rank-3">&#129353; 3</td>
             <td class="model-name">Gemini-2.5-pro</td>
-            <td><span class="type-badge type-closed">Closed</span></td>
+            <td><span class="type-badge type-closed">闭源</span></td>
             <td>44.9%</td>
             <td>MVC (58.5%)</td>
             <td>CR (26.7%)</td>
@@ -359,7 +359,7 @@
           <tr data-type="closed">
             <td class="rank">4</td>
             <td class="model-name">Claude Sonnet 4</td>
-            <td><span class="type-badge type-closed">Closed</span></td>
+            <td><span class="type-badge type-closed">闭源</span></td>
             <td>26.7%</td>
             <td>PRA (60.7%)</td>
             <td>GPC (0.2%)</td>
@@ -368,7 +368,7 @@
           <tr data-type="open">
             <td class="rank">5</td>
             <td class="model-name">Llama-4-Maverick-17B</td>
-            <td><span class="type-badge type-open">Open</span></td>
+            <td><span class="type-badge type-open">开源</span></td>
             <td>23.8%</td>
             <td>PRA (47.6%)</td>
             <td>VT (4.5%)</td>
@@ -377,7 +377,7 @@
           <tr class="ours-row" data-type="ours">
             <td class="rank">6</td>
             <td class="model-name">MathSpatial-InternVL3-8B &#11088;</td>
-            <td><span class="type-badge type-ours">Ours</span></td>
+            <td><span class="type-badge type-ours">自有</span></td>
             <td>22.6%</td>
             <td>PRA (56.6%)</td>
             <td>C3M (2.0%)</td>
@@ -386,7 +386,7 @@
           <tr data-type="closed">
             <td class="rank">7</td>
             <td class="model-name">GPT-4.1</td>
-            <td><span class="type-badge type-closed">Closed</span></td>
+            <td><span class="type-badge type-closed">闭源</span></td>
             <td>22.6%</td>
             <td>PRA (55.2%)</td>
             <td>VT (0.0%)</td>
@@ -395,7 +395,7 @@
           <tr data-type="closed">
             <td class="rank">8</td>
             <td class="model-name">Claude 3.5 Sonnet</td>
-            <td><span class="type-badge type-closed">Closed</span></td>
+            <td><span class="type-badge type-closed">闭源</span></td>
             <td>22.3%</td>
             <td>PRA (57.2%)</td>
             <td>GPC (0.0%)</td>
@@ -404,7 +404,7 @@
           <tr class="ours-row" data-type="ours">
             <td class="rank">9</td>
             <td class="model-name">MathSpatial-Qwen-7B &#11088;</td>
-            <td><span class="type-badge type-ours">Ours</span></td>
+            <td><span class="type-badge type-ours">自有</span></td>
             <td>22.1%</td>
             <td>IVI (46.2%)</td>
             <td>GPC (0.0%)</td>
@@ -413,7 +413,7 @@
           <tr data-type="closed">
             <td class="rank">10</td>
             <td class="model-name">Claude 3.7 Sonnet</td>
-            <td><span class="type-badge type-closed">Closed</span></td>
+            <td><span class="type-badge type-closed">闭源</span></td>
             <td>21.5%</td>
             <td>PRA (57.9%)</td>
             <td>GPC (0.0%)</td>
@@ -422,7 +422,7 @@
           <tr data-type="open">
             <td class="rank">11</td>
             <td class="model-name">GLM-4.5V</td>
-            <td><span class="type-badge type-open">Open</span></td>
+            <td><span class="type-badge type-open">开源</span></td>
             <td>21.0%</td>
             <td>PRA (57.9%)</td>
             <td>GPC (0.0%)</td>
@@ -431,7 +431,7 @@
           <tr class="ours-row" data-type="ours">
             <td class="rank">12</td>
             <td class="model-name">MathSpatial-Llama3-8B &#11088;</td>
-            <td><span class="type-badge type-ours">Ours</span></td>
+            <td><span class="type-badge type-ours">自有</span></td>
             <td>20.3%</td>
             <td>CR (41.1%)</td>
             <td>PPCD (7.7%)</td>
@@ -440,7 +440,7 @@
           <tr data-type="open">
             <td class="rank">13</td>
             <td class="model-name">Qwen2.5-VL-72B</td>
-            <td><span class="type-badge type-open">Open</span></td>
+            <td><span class="type-badge type-open">开源</span></td>
             <td>19.7%</td>
             <td>PRA (47.6%)</td>
             <td>VT (0.0%)</td>
@@ -449,7 +449,7 @@
           <tr data-type="closed">
             <td class="rank">14</td>
             <td class="model-name">GPT-4o</td>
-            <td><span class="type-badge type-closed">Closed</span></td>
+            <td><span class="type-badge type-closed">闭源</span></td>
             <td>19.6%</td>
             <td>PRA (45.5%)</td>
             <td>GPC (0.0%)</td>
@@ -458,7 +458,7 @@
           <tr data-type="open">
             <td class="rank">15</td>
             <td class="model-name">Qwen2.5-VL-7B</td>
-            <td><span class="type-badge type-open">Open</span></td>
+            <td><span class="type-badge type-open">开源</span></td>
             <td>17.8%</td>
             <td>PRA (41.4%)</td>
             <td>C3M (0.0%)</td>
@@ -467,7 +467,7 @@
           <tr data-type="open">
             <td class="rank">16</td>
             <td class="model-name">InternVL3-8B</td>
-            <td><span class="type-badge type-open">Open</span></td>
+            <td><span class="type-badge type-open">开源</span></td>
             <td>17.4%</td>
             <td>PRA (40.0%)</td>
             <td>C3M (0.0%)</td>
@@ -476,7 +476,7 @@
           <tr data-type="open">
             <td class="rank">17</td>
             <td class="model-name">Llama3-8B</td>
-            <td><span class="type-badge type-open">Open</span></td>
+            <td><span class="type-badge type-open">开源</span></td>
             <td>15.0%</td>
             <td>PRA (23.4%)</td>
             <td>PPCD (7.7%)</td>
@@ -487,7 +487,7 @@
     </div>
 
     <p style="text-align:center; margin-top:24px; font-size:0.88rem; color:rgba(255,255,255,0.5);">
-      Full results for 16+ models available in the paper. Our fine-tuned models match or exceed larger closed-source systems while using 50&ndash;60% fewer tokens. Want to submit your model? <a href="https://github.com/shuolucs/MathSpatial/issues" target="_blank" style="color:var(--primary-light);">Open an issue on GitHub</a>.
+      论文提供 16+ 模型的完整结果。我们微调后的模型在更少 Token（约为闭源大模型的 50%&ndash;60%）下即可达到或超过更大闭源系统。欢迎投稿你的模型：<a href="https://github.com/shuolucs/MathSpatial/issues" target="_blank" style="color:var(--primary-light);">在 GitHub 提 Issue</a>。
     </p>
   </div>
 </section>
@@ -495,41 +495,41 @@
 <!-- ====== Key Findings ====== -->
 <section class="section" id="findings">
   <div class="container">
-    <h2 class="section-title animate-on-scroll">Key <span class="highlight">Findings</span></h2>
+    <h2 class="section-title animate-on-scroll">主要<span class="highlight">发现</span></h2>
     <p class="section-desc animate-on-scroll">
-      MathSpatial reveals fundamental limitations of current MLLMs in spatial reasoning.
+      MathSpatial 揭示了当前 MLLM 在空间推理上的根本性局限。
     </p>
 
     <div class="findings-grid animate-on-scroll">
       <div class="finding-card f-gap">
         <div class="finding-icon"><i class="fas fa-exclamation-triangle"></i></div>
-        <h4>Massive Human&ndash;Model Gap</h4>
-        <p>Humans achieve 96.3% accuracy; the best MLLM (GPT-5) reaches only 58.5%, revealing a 37.8 percentage-point gap in spatial reasoning.</p>
+        <h4>巨大的人机差距</h4>
+        <p>人类准确率 96.3%，最强 MLLM（GPT-5）仅 58.5%，空间推理上存在约 37.8 个百分点的差距。</p>
       </div>
       <div class="finding-card f-abstract">
         <div class="finding-icon"><i class="fas fa-brain"></i></div>
-        <h4>Abstract Deduction is Hardest</h4>
-        <p>Most models score below 5% on Geometric Property Calculation (GPC), the most abstract subtype requiring multi-step numerical reasoning.</p>
+        <h4>抽象演绎最难</h4>
+        <p>多数模型在几何量计算（GPC）上低于 5%；该子类最抽象，需要多步数值推理。</p>
       </div>
       <div class="finding-card f-scale">
         <div class="finding-icon"><i class="fas fa-expand-arrows-alt"></i></div>
-        <h4>Scaling Alone Does Not Help</h4>
-        <p>Qwen2.5-VL-72B (19.7%) barely improves over its 7B variant (17.8%), demonstrating that spatial reasoning cannot be solved by scaling alone.</p>
+        <h4>单纯扩规模无效</h4>
+        <p>Qwen2.5-VL-72B（19.7%）相较 7B 版本（17.8%）几乎无提升，说明空间推理无法仅靠扩模解决。</p>
       </div>
       <div class="finding-card f-train">
         <div class="finding-icon"><i class="fas fa-graduation-cap"></i></div>
-        <h4>Training on MathSpatial Works</h4>
-        <p>Fine-tuned models consistently improve accuracy while reducing token usage by 20&ndash;30% through structured reasoning trace supervision.</p>
+        <h4>在 MathSpatial 上训练有效</h4>
+        <p>微调模型在结构化推理轨迹监督下持续提升准确率，并将 Token 用量降低约 20%&ndash;30%。</p>
       </div>
     </div>
 
     <details class="collapsible animate-on-scroll" style="margin-top:32px;">
       <summary style="cursor:pointer; font-size:1.1rem; font-weight:600; color:var(--primary); padding:12px 0;">
-        <i class="fas fa-chart-bar" style="margin-right:8px;"></i>View Detailed Accuracy Chart (All Models)
+        <i class="fas fa-chart-bar" style="margin-right:8px;"></i>查看详细准确率图（全部模型）
       </summary>
       <div class="img-showcase" style="margin-top:16px;">
-        <img src="static/images/fig_overall_accuracy.png?v=1775455884" alt="Overall Accuracy" loading="lazy">
-        <p class="img-caption">Overall accuracy comparison across all 17+ evaluated models on MathSpatial-Bench.</p>
+        <img src="static/images/fig_overall_accuracy.png?v=1775455884" alt="总体准确率" loading="lazy">
+        <p class="img-caption">MathSpatial-Bench 上 17+ 个受评模型的总体准确率对比。</p>
       </div>
     </details>
   </div>
@@ -538,43 +538,43 @@
 <!-- ====== Error Analysis ====== -->
 <section class="section section-alt" id="error-analysis">
   <div class="container">
-    <h2 class="section-title animate-on-scroll">Error <span class="highlight">Analysis</span></h2>
+    <h2 class="section-title animate-on-scroll">错误<span class="highlight">分析</span></h2>
     <p class="section-desc animate-on-scroll">
-      Fine-grained error taxonomy reveals distinct failure patterns across model families, highlighting fundamental challenges in spatial reasoning.
+      细粒度错误分类揭示了不同模型族的失败模式差异，凸显空间推理中的根本难点。
     </p>
 
     <div class="img-showcase animate-on-scroll">
-      <img src="static/images/fig_error_analysis.png?v=1775455884" alt="Error Analysis" loading="lazy">
+      <img src="static/images/fig_error_analysis.png?v=1775455884" alt="错误分析" loading="lazy">
       <p class="img-caption">
-        (a) Error frequency distribution for baselines across 6 subcategories. (b) Overall error rate breakdown by failure mode.
+        （a）6 个子类上基线的错误频率分布。（b）按失败类型汇总的总体错误率。
       </p>
     </div>
 
     <div class="findings-grid animate-on-scroll" style="margin-top:40px;">
       <div class="finding-card f-gap">
         <div class="finding-icon"><i class="fas fa-chain-broken"></i></div>
-        <h4>Reasoning Gaps (34.4%)</h4>
-        <p>The dominant failure mode. Models produce incomplete or inconsistent chains of thought. Fine-tuning on MathSpatial-Corpus reduces this error type.</p>
+        <h4>推理断层（34.4%）</h4>
+        <p>最主要的失败模式：模型推理链不完整或不一致。在 MathSpatial-Corpus 上微调可降低该类错误。</p>
       </div>
       <div class="finding-card f-abstract">
         <div class="finding-icon"><i class="fas fa-ruler-combined"></i></div>
-        <h4>Geometry Violations (33.0%)</h4>
-        <p>Outputs break orthographic projection rules or visibility constraints. Claude models are particularly prone to this error type.</p>
+        <h4>几何约束违背（33.0%）</h4>
+        <p>输出违背正交投影或可见性约束。Claude 系列尤其容易出现该类错误。</p>
       </div>
       <div class="finding-card f-scale">
         <div class="finding-icon"><i class="fas fa-eye"></i></div>
-        <h4>Projection Errors (12.6%)</h4>
-        <p>Models misinterpret top, side, or front views. Gemini-2.5-flash suffers more from this error category than other models.</p>
+        <h4>投影误解（12.6%）</h4>
+        <p>模型误读俯视图、侧视图或正视图。Gemini-2.5-flash 在该类错误上尤为突出。</p>
       </div>
       <div class="finding-card f-train">
         <div class="finding-icon"><i class="fas fa-shapes"></i></div>
-        <h4>Feature / Scale / Deduction</h4>
-        <p>Feature errors (10.5%): omitting components. Scale errors (7.2%): failing to preserve sizes. Deduction failures (2.3%): inability to synthesize multiple cues.</p>
+        <h4>特征 / 尺度 / 演绎</h4>
+        <p>特征错误（10.5%）：遗漏部件。尺度错误（7.2%）：未保持大小关系。演绎失败（2.3%）：无法综合多条线索。</p>
       </div>
     </div>
 
     <p class="section-desc animate-on-scroll" style="margin-top:32px; font-size:0.95rem;">
-      <strong>Key insight:</strong> The two core challenges &mdash; enforcing low-level geometric consistency and sustaining coherent multi-step reasoning &mdash; remain largely unsolved by current MLLMs. The fine-grained error taxonomy provides a diagnostic foundation for targeted improvements.
+      <strong>要点：</strong>保证底层几何一致性与维持连贯多步推理这两大核心挑战，当前 MLLM 仍未很好解决。细粒度错误分类为针对性改进提供了诊断基础。
     </p>
   </div>
 </section>
@@ -582,41 +582,41 @@
 <!-- ====== Atomic Annotations ====== -->
 <section class="section section-alt" id="annotations">
   <div class="container">
-    <h2 class="section-title animate-on-scroll">Atomic <span class="highlight">Annotations</span></h2>
+    <h2 class="section-title animate-on-scroll">原子级<span class="highlight">标注</span></h2>
     <p class="section-desc animate-on-scroll">
-      Every problem in MathSpatial-Corpus is annotated with structured reasoning traces decomposing spatial reasoning into three atomic operations: <strong>Correlate</strong>, <strong>Constrain</strong>, and <strong>Infer</strong>.
+      MathSpatial-Corpus 中每道题均配有结构化推理轨迹，将空间推理拆解为三种原子操作：<strong>关联（Correlate）</strong>、<strong>约束（Constrain）</strong>与<strong>推断（Infer）</strong>。
     </p>
 
     <div class="srt-ops animate-on-scroll">
       <div class="srt-op correlate">
         <div class="op-symbol">C</div>
-        <h4>Correlate</h4>
-        <p>Establish cross-view correspondences between geometric features.</p>
+        <h4>关联 Correlate</h4>
+        <p>建立几何特征在跨视图间的对应关系。</p>
       </div>
       <div class="srt-op constrain">
         <div class="op-symbol">K</div>
-        <h4>Constrain</h4>
-        <p>Apply geometric rules, projection constraints, and consistency conditions.</p>
+        <h4>约束 Constrain</h4>
+        <p>套用几何规则、投影约束与一致性条件。</p>
       </div>
       <div class="srt-op infer">
         <div class="op-symbol">I</div>
-        <h4>Infer</h4>
-        <p>Deduce hidden attributes, measurements, or final answers from evidence.</p>
+        <h4>推断 Infer</h4>
+        <p>由证据推导隐藏属性、度量或最终答案。</p>
       </div>
     </div>
 
     <div class="two-col animate-on-scroll">
       <div>
         <div class="img-showcase">
-          <img src="static/images/fig_srt_analysis.png?v=1775455884" alt="Atomic Operation Analysis" loading="lazy">
+          <img src="static/images/fig_srt_analysis.png?v=1775455884" alt="原子操作分析" loading="lazy">
           <p class="img-caption">
-            (a) Atomic operation distribution: Infer ~42% &gt; Correlate ~33% &gt; Constrain ~25%.
-            (b) Average trace length: 5.1 steps.
+            （a）原子操作占比：Infer ~42% &gt; Correlate ~33% &gt; Constrain ~25%。
+            （b）平均轨迹长度：5.1 步。
           </p>
         </div>
       </div>
       <div>
-        <h3 style="margin-bottom:20px; font-weight:700;">Trace Format Example</h3>
+        <h3 style="margin-bottom:20px; font-weight:700;">轨迹 JSON 示例</h3>
         <div class="code-block">
 <span class="bracket">{</span>
   <span class="key">"reasoning"</span>: <span class="bracket">[</span>
@@ -644,97 +644,97 @@
 <!-- ====== Supplementary Material ====== -->
 <section class="section" id="supplementary">
   <div class="container">
-    <h2 class="section-title animate-on-scroll">Supplementary <span class="highlight">Material</span></h2>
+    <h2 class="section-title animate-on-scroll">补充<span class="highlight">材料</span></h2>
     <p class="section-desc animate-on-scroll">
-      Additional details from the paper, including case studies, atomic annotation examples, and ablation studies. Click to expand.
+      论文中的更多细节，包括案例研究、原子标注示例与消融实验。点击下方展开。
     </p>
 
     <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
       <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
-        <i class="fas fa-search-plus" style="margin-right:8px;"></i>Case Studies &mdash; Qualitative Examples across Model Families
+        <i class="fas fa-search-plus" style="margin-right:8px;"></i>案例研究 — 跨模型族的定性示例
       </summary>
       <div class="img-showcase" style="margin-top:16px;">
-        <img src="static/images/case_studies.png" alt="Case Studies" loading="lazy">
-        <p class="img-caption">Qualitative comparison of model responses on representative problems. Different models exhibit distinct failure patterns: GPT-5 excels at holistic recognition but struggles with abstract computation; Claude models often violate geometric projection rules; open-source models frequently produce reasoning gaps.</p>
+        <img src="static/images/case_studies.png" alt="案例研究" loading="lazy">
+        <p class="img-caption">代表性题目上各模型回答的定性对比：GPT-5 擅长整体识别但抽象计算仍弱；Claude 系易违背投影规则；开源模型常出现推理断层。</p>
       </div>
     </details>
 
     <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
       <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
-        <i class="fas fa-project-diagram" style="margin-right:8px;"></i>Atomic Annotation &mdash; Complete Worked Example
+        <i class="fas fa-project-diagram" style="margin-right:8px;"></i>原子标注 — 完整演示例
       </summary>
       <div class="img-showcase" style="margin-top:16px;">
-        <img src="static/images/srt_example.png" alt="SRT Worked Example" loading="lazy">
-        <p class="img-caption">A complete atomic annotation example showing the Correlate &rarr; Constrain &rarr; Infer paradigm applied to a multi-view spatial reasoning problem.</p>
+        <img src="static/images/srt_example.png" alt="SRT 完整示例" loading="lazy">
+        <p class="img-caption">完整原子标注示例：在多视图空间推理题上应用「关联 &rarr; 约束 &rarr; 推断」范式。</p>
       </div>
     </details>
 
     <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
       <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
-        <i class="fas fa-flask" style="margin-right:8px;"></i>Ablation &mdash; Impact of Removing Individual Atomic Operations
+        <i class="fas fa-flask" style="margin-right:8px;"></i>消融 — 移除单一原子操作的影响
       </summary>
       <div class="img-showcase" style="margin-top:16px;">
-        <img src="static/images/srt_ablation.png" alt="SRT Ablation" loading="lazy">
-        <p class="img-caption">Ablation study: complete solution with all three atomic operations versus degraded outputs when each operation (Correlate, Constrain, or Infer) is removed in turn. Removing any single operation leads to distinct failure modes.</p>
+        <img src="static/images/srt_ablation.png" alt="SRT 消融" loading="lazy">
+        <p class="img-caption">消融：保留三种原子操作的完整解答，与依次移除 Correlate / Constrain / Infer 后退化输出对比；移除任一类都会导致不同失败模式。</p>
       </div>
     </details>
 
     <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
       <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
-        <i class="fas fa-list-ol" style="margin-right:8px;"></i>Subcategory Definitions &mdash; 11 Fine-Grained Task Types
+        <i class="fas fa-list-ol" style="margin-right:8px;"></i>子类定义 — 11 种细粒度任务
       </summary>
       <div style="margin-top:16px; padding:20px; background:var(--bg-alt); border-radius:var(--radius);">
-        <h4 style="color:var(--primary); margin-bottom:12px;">Holistic Recognition (4 subtypes)</h4>
+        <h4 style="color:var(--primary); margin-bottom:12px;">整体识别（4 种子类）</h4>
         <ul style="margin-left:20px; margin-bottom:16px; line-height:2;">
-          <li><strong>C3M</strong> &mdash; Complex 3-View to 3D Matching</li>
-          <li><strong>3VM</strong> &mdash; 3D Model to 3-View Matching</li>
-          <li><strong>IVI</strong> &mdash; Incorrect View Identification</li>
-          <li><strong>CR</strong> &mdash; Component Recognition</li>
+          <li><strong>C3M</strong> — 复杂三视图与立体匹配</li>
+          <li><strong>3VM</strong> — 立体模型与三视图匹配</li>
+          <li><strong>IVI</strong> — 错误视图辨识</li>
+          <li><strong>CR</strong> — 部件识别</li>
         </ul>
-        <h4 style="color:var(--accent); margin-bottom:12px;">Generative Inference (3 subtypes)</h4>
+        <h4 style="color:var(--accent); margin-bottom:12px;">生成式推理（3 种子类）</h4>
         <ul style="margin-left:20px; margin-bottom:16px; line-height:2;">
-          <li><strong>MVC</strong> &mdash; Missing View Completion</li>
-          <li><strong>VT</strong> &mdash; Viewpoint Transformation</li>
-          <li><strong>PRA</strong> &mdash; Projection Rule Application</li>
+          <li><strong>MVC</strong> — 缺失视图补全</li>
+          <li><strong>VT</strong> — 视点变换</li>
+          <li><strong>PRA</strong> — 投影规则应用</li>
         </ul>
-        <h4 style="color:#45B7D1; margin-bottom:12px;">Abstract Deduction (4 subtypes)</h4>
+        <h4 style="color:#45B7D1; margin-bottom:12px;">抽象演绎（4 种子类）</h4>
         <ul style="margin-left:20px; line-height:2;">
-          <li><strong>GPC</strong> &mdash; Geometric Property Calculation</li>
-          <li><strong>FPBI</strong> &mdash; Function &amp; Physical Behavior Inference</li>
-          <li><strong>SCP</strong> &mdash; Structural Change Prediction</li>
-          <li><strong>PPCD</strong> &mdash; Path Planning &amp; Collision Detection</li>
+          <li><strong>GPC</strong> — 几何量计算</li>
+          <li><strong>FPBI</strong> — 功能与物理行为推断</li>
+          <li><strong>SCP</strong> — 结构变化预测</li>
+          <li><strong>PPCD</strong> — 路径规划与碰撞检测</li>
         </ul>
       </div>
     </details>
 
     <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
       <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
-        <i class="fas fa-database" style="margin-right:8px;"></i>Data Construction Pipeline &mdash; Multi-Stage Quality Control
+        <i class="fas fa-database" style="margin-right:8px;"></i>数据构建流程 — 多阶段质检
       </summary>
       <div style="margin-top:16px; padding:20px; background:var(--bg-alt); border-radius:var(--radius);">
         <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-bottom:16px;">
-          <span style="padding:8px 16px; background:#4361ee; color:white; border-radius:8px; font-weight:600;">35,428 Raw Candidates</span>
+          <span style="padding:8px 16px; background:#4361ee; color:white; border-radius:8px; font-weight:600;">35,428 条原始候选</span>
           <span style="padding:8px 12px; color:var(--text-light);">&rarr;</span>
-          <span style="padding:8px 16px; background:#7209B7; color:white; border-radius:8px; font-weight:600;">Manual Filtering (61.1%)</span>
+          <span style="padding:8px 16px; background:#7209B7; color:white; border-radius:8px; font-weight:600;">人工筛选（61.1%）</span>
           <span style="padding:8px 12px; color:var(--text-light);">&rarr;</span>
-          <span style="padding:8px 16px; background:#FF6B6B; color:white; border-radius:8px; font-weight:600;">Deduplication (MD5 + SBERT + GPT-4.1 vision)</span>
+          <span style="padding:8px 16px; background:#FF6B6B; color:white; border-radius:8px; font-weight:600;">去重（MD5 + SBERT + GPT-4.1 视觉）</span>
           <span style="padding:8px 12px; color:var(--text-light);">&rarr;</span>
-          <span style="padding:8px 16px; background:#FF9F43; color:white; border-radius:8px; font-weight:600;">Geometric Consistency Check</span>
+          <span style="padding:8px 16px; background:#FF9F43; color:white; border-radius:8px; font-weight:600;">几何一致性检查</span>
           <span style="padding:8px 12px; color:var(--text-light);">&rarr;</span>
-          <span style="padding:8px 16px; background:#2ECC71; color:white; border-radius:8px; font-weight:600;">10,000 Final Problems</span>
+          <span style="padding:8px 16px; background:#2ECC71; color:white; border-radius:8px; font-weight:600;">10,000 道最终题目</span>
         </div>
-        <p style="font-size:0.9rem; color:var(--text-light);">Sources: Baidu Wenku, Zujuan, Provincial exam archives. Filtering thresholds: &ge;0.90 (remove), 0.85&ndash;0.90 (manual review), &lt;0.85 (retain). 1K items flagged for human-in-loop review; 60% corrected, 40% removed.</p>
+        <p style="font-size:0.9rem; color:var(--text-light);">来源：百度文库、组卷网、省级试题库等。过滤阈值：&ge;0.90（剔除）、0.85&ndash;0.90（人工复核）、&lt;0.85（保留）。约 1K 条进入人机协同复核，60% 修正后保留、40% 删除。</p>
       </div>
     </details>
 
     <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
       <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
-        <i class="fas fa-users" style="margin-right:8px;"></i>Human Evaluation Protocol
+        <i class="fas fa-users" style="margin-right:8px;"></i>人工评测协议
       </summary>
       <div style="margin-top:16px; padding:20px; background:var(--bg-alt); border-radius:var(--radius);">
-        <p><strong>Participants:</strong> 80 middle/high school students &middot; <strong>Redundancy:</strong> 20&times; per problem &middot; <strong>Total responses:</strong> 40,000</p>
-        <p><strong>Conditions:</strong> Closed-book, no calculators/software, pen and paper only</p>
-        <p><strong>Result:</strong> Micro-averaged accuracy = <strong>96.3%</strong></p>
+        <p><strong>被试：</strong>80 名初高中生 &middot; <strong>冗余：</strong>每题 20 人次 &middot; <strong>总作答：</strong>40,000</p>
+        <p><strong>条件：</strong>闭卷、禁用计算器与软件，仅纸笔作答</p>
+        <p><strong>结果：</strong>微平均准确率 = <strong>96.3%</strong></p>
       </div>
     </details>
   </div>
@@ -743,22 +743,22 @@
 <!-- ====== Download / Access ====== -->
 <section class="section section-alt" id="download">
   <div class="container">
-    <h2 class="section-title animate-on-scroll">Download &amp; <span class="highlight">Access</span></h2>
+    <h2 class="section-title animate-on-scroll">下载与<span class="highlight">获取</span></h2>
     <p class="section-desc animate-on-scroll">
-      MathSpatial is fully open-source. Access the dataset and code through the links below.
+      MathSpatial 完全开源，可通过以下链接获取数据与代码。
     </p>
 
     <div class="access-grid animate-on-scroll">
       <div class="access-card">
         <div class="access-icon github"><i class="fab fa-github"></i></div>
-        <h3>GitHub Repository</h3>
-        <p>Source code, evaluation scripts, benchmark data, and documentation.</p>
-        <a class="btn-sm btn-dark" href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+        <h3>GitHub 仓库</h3>
+        <p>源代码、评测脚本、基准数据与文档。</p>
+        <a class="btn-sm btn-dark" href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> 在 GitHub 查看</a>
       </div>
       <div class="access-card">
         <div class="access-icon hf"><span style="font-size:1.6rem">&#129303;</span></div>
-        <h3>HuggingFace Dataset</h3>
-        <p>Full dataset with all 10K problems, images, and structured reasoning traces.</p>
+        <h3>HuggingFace 数据集</h3>
+        <p>完整数据集，含全部 1 万道题、图像与结构化推理轨迹。</p>
         <a class="btn-sm btn-orange" href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank"><span>&#129303;</span> HuggingFace</a>
       </div>
     </div>
@@ -768,15 +768,15 @@
 <!-- ====== License ====== -->
 <section class="section section-alt" id="license">
   <div class="container">
-    <h2 class="section-title animate-on-scroll">License</h2>
+    <h2 class="section-title animate-on-scroll">许可协议</h2>
     <p class="section-desc animate-on-scroll">
-      Released under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> license.
+      基于 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议发布。
     </p>
     <div class="license-grid animate-on-scroll" style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:600px; margin:0 auto;">
-      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> Academic research use</div>
-      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> Attribution required</div>
-      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> Derivative works (same license)</div>
-      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#fef2f2; border-radius:10px; border:1px solid #fecaca;"><i class="fas fa-times-circle" style="color:#ef4444; font-size:1.1rem;"></i> Commercial use</div>
+      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> 学术研究使用</div>
+      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> 需署名</div>
+      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> 衍生作品（采用相同许可）</div>
+      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#fef2f2; border-radius:10px; border:1px solid #fecaca;"><i class="fas fa-times-circle" style="color:#ef4444; font-size:1.1rem;"></i> 商业用途（不允许）</div>
     </div>
   </div>
 </section>
@@ -784,10 +784,10 @@
 <!-- ====== Citation ====== -->
 <section class="section section-alt" id="citation">
   <div class="container">
-    <h2 class="section-title animate-on-scroll">Citation</h2>
-    <p class="section-desc animate-on-scroll">If you find MathSpatial useful in your research, please cite our paper:</p>
+    <h2 class="section-title animate-on-scroll">引用</h2>
+    <p class="section-desc animate-on-scroll">若在研究中使用了 MathSpatial，请引用我们的论文：</p>
     <div class="citation-block animate-on-scroll" id="citationBlock">
-      <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> Copy</button>
+      <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> 复制</button>
 <pre>@inproceedings{lu2026mathspatial,
   title     = {Do MLLMs Really Understand Space? A Mathematical
                Spatial Reasoning Evaluation},
@@ -816,10 +816,10 @@
     <div class="footer-links">
       <a href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> GitHub</a>
       <a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank"><span>&#129303;</span> HuggingFace</a>
-      <a href="#leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a>
-      <a href="#citation"><i class="fas fa-quote-left"></i> Cite</a>
+      <a href="#leaderboard"><i class="fas fa-trophy"></i> 榜单</a>
+      <a href="#citation"><i class="fas fa-quote-left"></i> 引用</a>
     </div>
-    <p>MathSpatial &copy; 2026 &middot; Released under CC BY-NC-SA 4.0 License &middot; ACM Multimedia 2026</p>
+    <p>MathSpatial &copy; 2026 &middot; CC BY-NC-SA 4.0 &middot; ACM Multimedia 2026</p>
   </div>
 </footer>
 
@@ -879,8 +879,8 @@ function copyCitation() {
   const text = document.querySelector('#citationBlock pre').textContent;
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.querySelector('.copy-btn');
-    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-    setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+    btn.innerHTML = '<i class="fas fa-check"></i> 已复制';
+    setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> 复制'; }, 2000);
   });
 }
 
