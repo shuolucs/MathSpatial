@@ -3,27 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MathSpatial — A Large-Scale Benchmark for Mathematical Spatial Reasoning</title>
-  <meta name="description" content="MathSpatial: the first large-scale dataset ecosystem dedicated to mathematical spatial reasoning in Multimodal Large Language Models.">
+  <title>MathSpatial | Large-Scale Benchmark for Mathematical Spatial Reasoning</title>
+  <meta name="description" content="MathSpatial: the first large-scale dataset ecosystem with 10K problems and 26K geometric diagrams for evaluating mathematical spatial reasoning in Multimodal Large Language Models. ACM Multimedia 2026.">
+  <meta name="keywords" content="MathSpatial, spatial reasoning, benchmark, dataset, MLLM, multimodal, ACM Multimedia, geometric reasoning">
+  <meta property="og:title" content="MathSpatial Benchmark">
+  <meta property="og:description" content="10K problems, 26K diagrams, 16+ models evaluated. The first large-scale benchmark for mathematical spatial reasoning.">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
 
+<!-- ====== Landing Splash ====== -->
+<div id="splash" style="position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#0b0e1a 0%,#1a1a3e 50%,#3a0ca3 100%); cursor:pointer; transition:opacity 0.6s ease;" onclick="this.style.opacity='0'; setTimeout(()=>this.style.display='none',600);">
+  <div style="text-align:center; color:white; animation:fadeInUp 0.8s ease;">
+    <div style="font-size:4rem; font-weight:900; letter-spacing:-2px; margin-bottom:16px;">
+      <span style="background:linear-gradient(90deg,#4361ee,#4cc9f0,#f72585);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">MathSpatial</span>
+    </div>
+    <p style="font-size:1.2rem; color:rgba(255,255,255,0.7); margin-bottom:8px;">
+      Benchmarking Mathematical Spatial Reasoning of MLLMs
+    </p>
+    <p style="font-size:0.9rem; color:rgba(255,255,255,0.4); margin-bottom:32px;">
+      ACM Multimedia 2026 &mdash; Dataset Track
+    </p>
+    <div style="display:inline-flex; align-items:center; gap:8px; padding:12px 32px; border:2px solid rgba(255,255,255,0.3); border-radius:40px; font-size:1rem; color:rgba(255,255,255,0.8); transition:all 0.3s;">
+      <span>Enter Site</span>
+      <i class="fas fa-arrow-right" style="font-size:0.9rem;"></i>
+    </div>
+  </div>
+</div>
+
 <!-- ====== Navbar ====== -->
 <nav class="navbar" id="navbar">
   <div class="container">
-    <a href="#" class="navbar-brand"><span>Math</span>Spatial</a>
+    <a href="#top" class="navbar-brand">
+      <span class="logo-math">Math</span><span class="logo-spatial">Spatial</span>
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#overview">Overview</a></li>
       <li><a href="#statistics">Statistics</a></li>
       <li><a href="#examples">Examples</a></li>
       <li><a href="#leaderboard">Leaderboard</a></li>
-      <li><a href="#findings">Key Findings</a></li>
-      <li><a href="#srt">SRT</a></li>
-      <li><a href="#citation">Citation</a></li>
+      <li><a href="#findings">Findings</a></li>
+      <li><a href="#error-analysis">Error Analysis</a></li>
+      <li><a href="#annotations">Annotations</a></li>
+      <li><a href="#download">Download</a></li>
+      <li><a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank" class="nav-cta"><i class="fas fa-database"></i> Dataset</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
       <i class="fas fa-bars"></i>
@@ -33,82 +61,98 @@
 
 <!-- ====== Hero ====== -->
 <section class="hero" id="top">
-  <div class="container">
-    <h1><span class="highlight">MathSpatial</span></h1>
+  <canvas id="particles-canvas"></canvas>
+  <div class="container hero-content">
+    <div class="hero-label">
+      <span class="label-icon">&#127942;</span> ACM Multimedia 2026 &mdash; Dataset Track
+    </div>
+    <h1>
+      <span class="gradient-text">MathSpatial</span>
+    </h1>
     <p class="subtitle">
       The First Large-Scale Dataset Ecosystem for Evaluating
       <strong>Mathematical Spatial Reasoning</strong> in Multimodal Large Language Models
     </p>
-    <div class="badges">
-      <span class="badge badge-blue"><i class="fas fa-puzzle-piece"></i> 9,964 Problems</span>
-      <span class="badge badge-green"><i class="fas fa-image"></i> 26,145 Images</span>
-      <span class="badge badge-orange"><i class="fas fa-sitemap"></i> 3 × 11 Categories</span>
-      <span class="badge badge-red"><i class="fas fa-robot"></i> 16+ Models Evaluated</span>
-      <span class="badge badge-gray"><i class="fas fa-scale-balanced"></i> CC BY-NC-SA 4.0</span>
+
+    <div class="hero-badges">
+      <span class="hero-badge b-blue"><i class="fas fa-puzzle-piece"></i> 10,000 Problems</span>
+      <span class="hero-badge b-green"><i class="fas fa-image"></i> 26,145 Diagrams</span>
+      <span class="hero-badge b-orange"><i class="fas fa-sitemap"></i> 3 &times; 11 Categories</span>
+      <span class="hero-badge b-red"><i class="fas fa-robot"></i> 16+ Models</span>
+      <span class="hero-badge b-gray"><i class="fas fa-scale-balanced"></i> CC BY-NC-SA 4.0</span>
     </div>
+
     <div class="hero-buttons">
-      <a class="btn btn-primary" href="#" target="_blank"><i class="fas fa-file-pdf"></i> Paper (arXiv)</a>
-      <a class="btn btn-dark" href="https://github.com/MathSpatial/MathSpatial" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a class="btn btn-outline" href="#leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a>
+      <a class="btn btn-github" href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a class="btn btn-hf" href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank"><span style="font-size:1.1rem">&#129303;</span> HuggingFace</a>
+      <a class="btn btn-outline-light" href="#leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a>
     </div>
-    <p class="team">MathSpatial Team</p>
+
+    <p class="hero-team">
+      Shuo Lu &middot; ACM Multimedia 2026
+    </p>
   </div>
 </section>
 
 <!-- ====== Overview ====== -->
-<section class="section" id="overview">
+<section class="section section-gradient" id="overview">
   <div class="container">
-    <h2 class="section-title">Overview</h2>
-    <p class="section-desc">
-      MathSpatial provides nearly 10,000 problems with 26,000+ geometric diagrams,
-      covering tasks from multi-view recognition to geometric property calculation.
-      It is the first open dataset ecosystem dedicated to mathematical spatial reasoning in MLLMs.
+    <h2 class="section-title animate-on-scroll">Overview</h2>
+    <p class="section-desc animate-on-scroll">
+      MathSpatial provides 10,000 problems with 26,000+ geometric diagrams, covering tasks from multi-view recognition to geometric property calculation. It is the first open dataset ecosystem dedicated to mathematical spatial reasoning in MLLMs.
     </p>
 
-    <div class="img-showcase">
-      <img src="static/images/overview.png" alt="MathSpatial Overview" loading="lazy">
+    <div class="img-showcase animate-on-scroll">
+      <img src="static/images/overview.png?v=1775455884" alt="MathSpatial Overview" loading="lazy">
       <p class="img-caption">
-        <b>Left:</b> Humans achieve over 95% accuracy on MathSpatial-Bench while most MLLMs remain below 60%.
-        <b>Right:</b> Three core challenges and how MathSpatial addresses them.
+        <strong>Left:</strong> Humans achieve over 95% accuracy on MathSpatial-Bench while most MLLMs remain below 60%.
+        <strong>Right:</strong> Three core challenges and how MathSpatial addresses them.
       </p>
     </div>
 
     <!-- Stats Cards -->
-    <div class="stats-row">
+    <div class="stats-row animate-on-scroll">
       <div class="stat-card">
-        <div class="stat-number">9,964</div>
+        <div class="stat-icon blue"><i class="fas fa-puzzle-piece"></i></div>
+        <div class="stat-number" data-count="10000">10,000</div>
         <div class="stat-label">Total Problems</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">26,145</div>
+        <div class="stat-icon green"><i class="fas fa-image"></i></div>
+        <div class="stat-number" data-count="26145">26,145</div>
         <div class="stat-label">Geometric Diagrams</div>
       </div>
       <div class="stat-card">
+        <div class="stat-icon orange"><i class="fas fa-layer-group"></i></div>
         <div class="stat-number">2.6</div>
         <div class="stat-label">Avg Images / Problem</div>
       </div>
       <div class="stat-card">
+        <div class="stat-icon red"><i class="fas fa-user-check"></i></div>
         <div class="stat-number">96.3%</div>
         <div class="stat-label">Human Accuracy</div>
       </div>
     </div>
 
     <!-- Components -->
-    <div class="components-grid">
+    <div class="components-grid animate-on-scroll">
       <div class="component-card">
-        <span class="tag tag-bench">Benchmark</span>
+        <div class="card-icon bench"><i class="fas fa-clipboard-check"></i></div>
+        <span class="card-stat bench">Evaluation</span>
         <h3>MathSpatial-Bench</h3>
-        <p>2,000 problems with 5,837 images for diagnostic evaluation with calibrated difficulty.</p>
+        <p>2,000 problems with 5,837 images for rigorous diagnostic evaluation with calibrated difficulty across 3 categories and 11 subtypes.</p>
       </div>
       <div class="component-card">
-        <span class="tag tag-corpus">Corpus</span>
+        <div class="card-icon corpus"><i class="fas fa-database"></i></div>
+        <span class="card-stat corpus">Training</span>
         <h3>MathSpatial-Corpus</h3>
-        <p>7,964 problems with 20,308 images for training with verified solutions.</p>
+        <p>8,000 problems with 20,308+ images for training with verified solutions. Sourced from authentic educational materials spanning K-12 levels.</p>
       </div>
       <div class="component-card">
-        <span class="tag tag-srt">SRT</span>
-        <h3>MathSpatial-SRT</h3>
-        <p>9,962 structured reasoning traces following the Correlate → Constrain → Infer paradigm.</p>
+        <div class="card-icon srt"><i class="fas fa-project-diagram"></i></div>
+        <span class="card-stat srt">Annotations</span>
+        <h3>Structured Reasoning Traces</h3>
+        <p>10,000 structured reasoning traces following the Correlate &rarr; Constrain &rarr; Infer paradigm for interpretable intermediate supervision.</p>
       </div>
     </div>
   </div>
@@ -117,35 +161,102 @@
 <!-- ====== Statistics ====== -->
 <section class="section section-alt" id="statistics">
   <div class="container">
-    <h2 class="section-title">Dataset Statistics</h2>
-    <p class="section-desc">
-      3 main categories × 11 subtypes covering representative tasks in mathematical spatial reasoning education.
+    <h2 class="section-title animate-on-scroll">Dataset <span class="highlight">Statistics</span></h2>
+    <p class="section-desc animate-on-scroll">
+      3 main categories &times; 11 subtypes covering representative tasks in mathematical spatial reasoning education.
     </p>
 
-    <div class="img-showcase">
-      <img src="static/images/fig_sunburst.png" alt="Taxonomy Sunburst" style="max-width:480px;" loading="lazy">
+    <div class="img-showcase animate-on-scroll">
+      <img src="static/images/fig_sunburst.png?v=1775455884" alt="Taxonomy" style="max-width:600px;" loading="lazy">
       <p class="img-caption">
-        Taxonomy: Holistic Recognition (518), Generative Inference (636), and Abstract Deduction (846).
+        MathSpatial-Bench: 3 main categories &times; 11 subtypes. Holistic Recognition (518), Generative Inference (636), and Abstract Deduction (846).
       </p>
     </div>
 
-    <div class="img-showcase">
-      <img src="static/images/fig_combined_stats.png" alt="Combined Statistics" loading="lazy">
+    <div class="img-showcase animate-on-scroll">
+      <img src="static/images/fig_combined_stats.png?v=1775455884" alt="Combined Statistics" loading="lazy">
       <p class="img-caption">
-        (a) Category distribution across Bench & Corpus. (b) Subcategory breakdown.
+        (a) Category distribution across Bench &amp; Corpus. (b) Subcategory breakdown.
         (c) 58% multiple-choice, 42% fill-in-blank for Bench. (d) Balanced A/B/C/D answer distribution.
       </p>
     </div>
 
-    <div class="two-col" style="margin-top:40px;">
+    <div class="two-col animate-on-scroll" style="margin-top:48px;">
       <div class="img-showcase">
-        <img src="static/images/fig_bench_corpus_comparison.png" alt="Bench vs Corpus" loading="lazy">
+        <img src="static/images/fig_bench_corpus_comparison.png?v=1775455884" alt="Bench vs Corpus" loading="lazy">
         <p class="img-caption">Bench vs. Corpus comparison across categories.</p>
       </div>
       <div class="img-showcase">
-        <img src="static/images/fig_images_text_stats.png" alt="Image and Text Stats" loading="lazy">
-        <p class="img-caption">Image count per problem and question length statistics.</p>
+        <img src="static/images/fig_images_text_stats.png?v=1775455884" alt="Image and Text Stats" loading="lazy">
+        <p class="img-caption">Image count per problem and question length distributions.</p>
       </div>
+    </div>
+
+    <h3 class="section-title animate-on-scroll" style="font-size:1.5rem; margin-top:56px;">Benchmark Comparison</h3>
+    <p class="section-desc animate-on-scroll">MathSpatial vs. existing benchmarks in mathematical and spatial reasoning.</p>
+    <div class="comparison-wrapper animate-on-scroll">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Dataset</th>
+            <th>#Tasks</th>
+            <th>#Samples</th>
+            <th>Bilingual</th>
+            <th>Spatial Focus</th>
+            <th>Train Set</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>EmbSpatial-Bench</td><td>6</td><td>3,640</td>
+            <td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td><td><span class="check-yes">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>Space3D-Bench</td><td>6</td><td>211</td>
+            <td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td>
+          </tr>
+          <tr>
+            <td>SpatialRGPT-Bench</td><td>12</td><td>1,406</td>
+            <td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td><td><span class="check-yes">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>BLINK-Spatial</td><td>14</td><td>286</td>
+            <td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td>
+          </tr>
+          <tr>
+            <td>SpatialVLM</td><td>2</td><td>546</td>
+            <td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td><td><span class="check-yes">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>GeoEval</td><td>3</td><td>5,050</td>
+            <td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td>
+          </tr>
+          <tr>
+            <td>3DSRBench</td><td>4</td><td>6,942</td>
+            <td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td>
+          </tr>
+          <tr>
+            <td>SOLIDGEO</td><td>8</td><td>3,113</td>
+            <td><span class="check-yes">&#10003;</span></td><td><span class="check-yes">&#10003;</span></td><td><span class="check-no">&#10007;</span></td>
+          </tr>
+          <tr>
+            <td>SpatialBot-Bench</td><td>5</td><td>200</td>
+            <td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td><td><span class="check-yes">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>VSI-Bench</td><td>8</td><td>288</td>
+            <td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td>
+          </tr>
+          <tr>
+            <td>OmniSpatial</td><td>50</td><td>1,387</td>
+            <td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td><td><span class="check-no">&#10007;</span></td>
+          </tr>
+          <tr class="ours-row">
+            <td>MathSpatial (Ours)</td><td>11</td><td>10,000</td>
+            <td><span class="check-yes">&#10003;</span></td><td><span class="check-yes">&#10003;</span></td><td><span class="check-yes">&#10003;</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -153,43 +264,43 @@
 <!-- ====== Examples ====== -->
 <section class="section" id="examples">
   <div class="container">
-    <h2 class="section-title">Task Examples</h2>
-    <p class="section-desc">
+    <h2 class="section-title animate-on-scroll">Task <span class="highlight">Examples</span></h2>
+    <p class="section-desc animate-on-scroll">
       Examples from three main categories: Holistic Recognition, Generative Inference, and Abstract Deduction.
     </p>
-    <div class="img-showcase">
-      <img src="static/images/examples.png" alt="Task Examples" loading="lazy">
+    <div class="img-showcase animate-on-scroll">
+      <img src="static/images/examples.png?v=1775455884" alt="Task Examples" loading="lazy">
       <p class="img-caption">
-        <b>Holistic Recognition:</b> matching 3D objects to views.
-        <b>Generative Inference:</b> completing missing views.
-        <b>Abstract Deduction:</b> calculating geometric properties.
+        <strong>Holistic Recognition:</strong> matching 3D objects to views.
+        <strong>Generative Inference:</strong> completing missing views.
+        <strong>Abstract Deduction:</strong> calculating geometric properties.
       </p>
     </div>
 
-    <h3 style="text-align:center; margin-top:48px; margin-bottom:24px;">Data Construction Pipeline</h3>
-    <div class="img-showcase">
-      <img src="static/images/pipeline_detail.png" alt="Pipeline" loading="lazy">
-      <p class="img-caption">
-        Starting from 35,428 raw candidates → Manual Filtering → Standardization → Geometric Checking → Solution Verification → Final 9,964 problems.
-      </p>
-    </div>
   </div>
 </section>
 
 <!-- ====== Leaderboard ====== -->
-<section class="section section-alt" id="leaderboard">
+<section class="section section-dark" id="leaderboard">
   <div class="container">
-    <h2 class="section-title">🏆 Leaderboard</h2>
-    <p class="section-desc">
-      Overall accuracy on MathSpatial-Bench. Humans achieve 96.3% while the best MLLM reaches 58.5%.
+    <h2 class="section-title animate-on-scroll" style="color:#fff;">&#127942; <span class="highlight">Leaderboard</span></h2>
+    <p class="section-desc animate-on-scroll">
+      Overall accuracy on MathSpatial-Bench. Humans achieve 96.3% while the best MLLM (GPT-5) reaches only 58.5%.
     </p>
 
-    <div class="img-showcase" style="margin-bottom:40px;">
-      <img src="static/images/fig_radar_models.png" alt="Radar Chart" style="max-width:560px;" loading="lazy">
+    <div class="img-showcase animate-on-scroll" style="margin-bottom:48px;">
+      <img src="static/images/fig_radar_models.png?v=1775455884" alt="Radar Chart" style="max-width:560px; border-radius:16px;" loading="lazy">
     </div>
 
-    <div class="leaderboard-wrapper">
-      <table class="leaderboard">
+    <div class="leaderboard-controls animate-on-scroll">
+      <button class="lb-filter active" data-filter="all">All Models</button>
+      <button class="lb-filter" data-filter="closed">Closed-Source</button>
+      <button class="lb-filter" data-filter="open">Open-Source</button>
+      <button class="lb-filter" data-filter="ours">Our Models</button>
+    </div>
+
+    <div class="leaderboard-wrapper animate-on-scroll">
+      <table class="leaderboard" id="leaderboardTable">
         <thead>
           <tr>
             <th class="rank">#</th>
@@ -202,128 +313,174 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="human-row">
-            <td class="rank">—</td>
-            <td class="model-name">Human</td>
-            <td>—</td>
+          <tr class="human-row" data-type="human">
+            <td class="rank">&mdash;</td>
+            <td class="model-name"><i class="fas fa-user" style="margin-right:6px;color:#06d6a0;"></i>Human</td>
+            <td><span class="type-badge type-human">Human</span></td>
             <td class="highlight-val">96.3%</td>
             <td>C3M (100%)</td>
             <td>3VM (89.4%)</td>
-            <td>—</td>
+            <td>&mdash;</td>
           </tr>
-          <tr>
-            <td class="rank">1</td>
+          <tr data-type="closed">
+            <td class="rank rank-1">&#129351; 1</td>
             <td class="model-name">GPT-5</td>
-            <td>Closed</td>
+            <td><span class="type-badge type-closed">Closed</span></td>
             <td class="highlight-val">58.5%</td>
             <td>PRA (71.7%)</td>
             <td>C3M (28.6%)</td>
             <td>676</td>
           </tr>
-          <tr>
-            <td class="rank">2</td>
+          <tr data-type="closed">
+            <td class="rank rank-2">&#129352; 2</td>
             <td class="model-name">Gemini-2.5-flash</td>
-            <td>Closed</td>
+            <td><span class="type-badge type-closed">Closed</span></td>
             <td>48.5%</td>
             <td>MVC (58.5%)</td>
             <td>FPBI (25.0%)</td>
-            <td>1115</td>
+            <td>1,115</td>
           </tr>
-          <tr>
-            <td class="rank">3</td>
+          <tr data-type="closed">
+            <td class="rank rank-3">&#129353; 3</td>
             <td class="model-name">Gemini-2.5-pro</td>
-            <td>Closed</td>
+            <td><span class="type-badge type-closed">Closed</span></td>
             <td>44.9%</td>
             <td>MVC (58.5%)</td>
-            <td>PRA (28.1%)</td>
+            <td>CR (26.7%)</td>
             <td>914</td>
           </tr>
-          <tr>
+          <tr data-type="closed">
             <td class="rank">4</td>
-            <td class="model-name">Claude 4</td>
-            <td>Closed</td>
+            <td class="model-name">Claude Sonnet 4</td>
+            <td><span class="type-badge type-closed">Closed</span></td>
             <td>26.7%</td>
             <td>PRA (60.7%)</td>
             <td>GPC (0.2%)</td>
-            <td>1006</td>
+            <td>1,006</td>
           </tr>
-          <tr>
+          <tr data-type="open">
             <td class="rank">5</td>
             <td class="model-name">Llama-4-Maverick-17B</td>
-            <td>Open</td>
+            <td><span class="type-badge type-open">Open</span></td>
             <td>23.8%</td>
             <td>PRA (47.6%)</td>
-            <td>GPC (4.6%)</td>
+            <td>VT (4.5%)</td>
             <td>845</td>
           </tr>
-          <tr class="ours">
+          <tr class="ours-row" data-type="ours">
             <td class="rank">6</td>
-            <td class="model-name">MathSpatial-InternVL3-8B ⭐</td>
-            <td>Ours</td>
+            <td class="model-name">MathSpatial-InternVL3-8B &#11088;</td>
+            <td><span class="type-badge type-ours">Ours</span></td>
             <td>22.6%</td>
-            <td>3VM (50.4%)</td>
+            <td>PRA (56.6%)</td>
             <td>C3M (2.0%)</td>
             <td><strong>318</strong></td>
           </tr>
-          <tr class="ours">
+          <tr data-type="closed">
             <td class="rank">7</td>
-            <td class="model-name">MathSpatial-Qwen-7B ⭐</td>
-            <td>Ours</td>
+            <td class="model-name">GPT-4.1</td>
+            <td><span class="type-badge type-closed">Closed</span></td>
+            <td>22.6%</td>
+            <td>PRA (55.2%)</td>
+            <td>VT (0.0%)</td>
+            <td>676</td>
+          </tr>
+          <tr data-type="closed">
+            <td class="rank">8</td>
+            <td class="model-name">Claude 3.5 Sonnet</td>
+            <td><span class="type-badge type-closed">Closed</span></td>
+            <td>22.3%</td>
+            <td>PRA (57.2%)</td>
+            <td>GPC (0.0%)</td>
+            <td>859</td>
+          </tr>
+          <tr class="ours-row" data-type="ours">
+            <td class="rank">9</td>
+            <td class="model-name">MathSpatial-Qwen-7B &#11088;</td>
+            <td><span class="type-badge type-ours">Ours</span></td>
             <td>22.1%</td>
             <td>IVI (46.2%)</td>
             <td>GPC (0.0%)</td>
             <td><strong>352</strong></td>
           </tr>
-          <tr>
-            <td class="rank">8</td>
-            <td class="model-name">GPT-4.1</td>
-            <td>Closed</td>
-            <td>22.6%</td>
-            <td>PRA (55.2%)</td>
-            <td>GPC (0.0%)</td>
-            <td>676</td>
-          </tr>
-          <tr>
-            <td class="rank">9</td>
-            <td class="model-name">Qwen2.5-VL-72B</td>
-            <td>Open</td>
-            <td>19.7%</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-          </tr>
-          <tr>
+          <tr data-type="closed">
             <td class="rank">10</td>
-            <td class="model-name">InternVL3-78B</td>
-            <td>Open</td>
-            <td>19.5%</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
+            <td class="model-name">Claude 3.7 Sonnet</td>
+            <td><span class="type-badge type-closed">Closed</span></td>
+            <td>21.5%</td>
+            <td>PRA (57.9%)</td>
+            <td>GPC (0.0%)</td>
+            <td>886</td>
           </tr>
-          <tr>
+          <tr data-type="open">
             <td class="rank">11</td>
-            <td class="model-name">Qwen2.5-VL-7B</td>
-            <td>Open</td>
-            <td>17.8%</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
+            <td class="model-name">GLM-4.5V</td>
+            <td><span class="type-badge type-open">Open</span></td>
+            <td>21.0%</td>
+            <td>PRA (57.9%)</td>
+            <td>GPC (0.0%)</td>
+            <td>1,391</td>
           </tr>
-          <tr>
+          <tr class="ours-row" data-type="ours">
             <td class="rank">12</td>
+            <td class="model-name">MathSpatial-Llama3-8B &#11088;</td>
+            <td><span class="type-badge type-ours">Ours</span></td>
+            <td>20.3%</td>
+            <td>CR (41.1%)</td>
+            <td>PPCD (7.7%)</td>
+            <td><strong>397</strong></td>
+          </tr>
+          <tr data-type="open">
+            <td class="rank">13</td>
+            <td class="model-name">Qwen2.5-VL-72B</td>
+            <td><span class="type-badge type-open">Open</span></td>
+            <td>19.7%</td>
+            <td>PRA (47.6%)</td>
+            <td>VT (0.0%)</td>
+            <td>498</td>
+          </tr>
+          <tr data-type="closed">
+            <td class="rank">14</td>
+            <td class="model-name">GPT-4o</td>
+            <td><span class="type-badge type-closed">Closed</span></td>
+            <td>19.6%</td>
+            <td>PRA (45.5%)</td>
+            <td>GPC (0.0%)</td>
+            <td>677</td>
+          </tr>
+          <tr data-type="open">
+            <td class="rank">15</td>
+            <td class="model-name">Qwen2.5-VL-7B</td>
+            <td><span class="type-badge type-open">Open</span></td>
+            <td>17.8%</td>
+            <td>PRA (41.4%)</td>
+            <td>C3M (0.0%)</td>
+            <td>465</td>
+          </tr>
+          <tr data-type="open">
+            <td class="rank">16</td>
             <td class="model-name">InternVL3-8B</td>
-            <td>Open</td>
-            <td>17.1%</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
+            <td><span class="type-badge type-open">Open</span></td>
+            <td>17.4%</td>
+            <td>PRA (40.0%)</td>
+            <td>C3M (0.0%)</td>
+            <td>474</td>
+          </tr>
+          <tr data-type="open">
+            <td class="rank">17</td>
+            <td class="model-name">Llama3-8B</td>
+            <td><span class="type-badge type-open">Open</span></td>
+            <td>15.0%</td>
+            <td>PRA (23.4%)</td>
+            <td>PPCD (7.7%)</td>
+            <td>785</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p style="text-align:center; margin-top:16px; font-size:.85rem; color:var(--text-light);">
-      Full results for 16+ models available in the paper. Our fine-tuned models match or exceed much larger closed-source systems while using 50–60% fewer tokens.
+
+    <p style="text-align:center; margin-top:24px; font-size:0.88rem; color:rgba(255,255,255,0.5);">
+      Full results for 16+ models available in the paper. Our fine-tuned models match or exceed larger closed-source systems while using 50&ndash;60% fewer tokens. Want to submit your model? <a href="https://github.com/shuolucs/MathSpatial/issues" target="_blank" style="color:var(--primary-light);">Open an issue on GitHub</a>.
     </p>
   </div>
 </section>
@@ -331,57 +488,128 @@
 <!-- ====== Key Findings ====== -->
 <section class="section" id="findings">
   <div class="container">
-    <h2 class="section-title">Key Findings</h2>
-    <p class="section-desc">
+    <h2 class="section-title animate-on-scroll">Key <span class="highlight">Findings</span></h2>
+    <p class="section-desc animate-on-scroll">
       MathSpatial reveals fundamental limitations of current MLLMs in spatial reasoning.
     </p>
 
-    <div class="findings-list">
-      <div class="finding-item">
-        <h4><i class="fas fa-exclamation-triangle" style="color:var(--accent);"></i> Massive Human–Model Gap</h4>
-        <p>Humans achieve 96.3% accuracy; the best MLLM (GPT-5) reaches only 58.5%, revealing a 37.8% gap.</p>
+    <div class="findings-grid animate-on-scroll">
+      <div class="finding-card f-gap">
+        <div class="finding-icon"><i class="fas fa-exclamation-triangle"></i></div>
+        <h4>Massive Human&ndash;Model Gap</h4>
+        <p>Humans achieve 96.3% accuracy; the best MLLM (GPT-5) reaches only 58.5%, revealing a 37.8 percentage-point gap in spatial reasoning.</p>
       </div>
-      <div class="finding-item">
-        <h4><i class="fas fa-brain" style="color:var(--accent);"></i> Abstract Deduction is Hardest</h4>
-        <p>Most models score below 5% on Geometric Property Calculation (GPC), the most abstract subtype.</p>
+      <div class="finding-card f-abstract">
+        <div class="finding-icon"><i class="fas fa-brain"></i></div>
+        <h4>Abstract Deduction is Hardest</h4>
+        <p>Most models score below 5% on Geometric Property Calculation (GPC), the most abstract subtype requiring multi-step numerical reasoning.</p>
       </div>
-      <div class="finding-item">
-        <h4><i class="fas fa-expand-arrows-alt" style="color:var(--accent);"></i> Scaling Alone Doesn't Help</h4>
-        <p>Qwen2.5-VL-72B (19.7%) barely improves over its 7B variant (17.8%), showing scaling limits.</p>
+      <div class="finding-card f-scale">
+        <div class="finding-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+        <h4>Scaling Alone Does Not Help</h4>
+        <p>Qwen2.5-VL-72B (19.7%) barely improves over its 7B variant (17.8%), demonstrating that spatial reasoning cannot be solved by scaling alone.</p>
       </div>
-      <div class="finding-item">
-        <h4><i class="fas fa-graduation-cap" style="color:var(--accent);"></i> Training on MathSpatial Works</h4>
-        <p>Fine-tuned models improve accuracy while reducing token usage by 20–30% with SRT supervision.</p>
+      <div class="finding-card f-train">
+        <div class="finding-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h4>Training on MathSpatial Works</h4>
+        <p>Fine-tuned models consistently improve accuracy while reducing token usage by 20&ndash;30% through structured reasoning trace supervision.</p>
       </div>
     </div>
 
-    <div class="img-showcase">
-      <img src="static/images/fig_overall_accuracy.png" alt="Overall Accuracy" loading="lazy">
-      <p class="img-caption">Overall accuracy comparison across all evaluated models on MathSpatial-Bench.</p>
-    </div>
+    <details class="collapsible animate-on-scroll" style="margin-top:32px;">
+      <summary style="cursor:pointer; font-size:1.1rem; font-weight:600; color:var(--primary); padding:12px 0;">
+        <i class="fas fa-chart-bar" style="margin-right:8px;"></i>View Detailed Accuracy Chart (All Models)
+      </summary>
+      <div class="img-showcase" style="margin-top:16px;">
+        <img src="static/images/fig_overall_accuracy.png?v=1775455884" alt="Overall Accuracy" loading="lazy">
+        <p class="img-caption">Overall accuracy comparison across all 17+ evaluated models on MathSpatial-Bench.</p>
+      </div>
+    </details>
   </div>
 </section>
 
-<!-- ====== SRT ====== -->
-<section class="section section-alt" id="srt">
+<!-- ====== Error Analysis ====== -->
+<section class="section section-alt" id="error-analysis">
   <div class="container">
-    <h2 class="section-title">Structured Reasoning Traces (SRT)</h2>
-    <p class="section-desc">
-      Every problem is annotated with structured traces decomposing spatial reasoning into three atomic operations.
+    <h2 class="section-title animate-on-scroll">Error <span class="highlight">Analysis</span></h2>
+    <p class="section-desc animate-on-scroll">
+      Fine-grained error taxonomy reveals distinct failure patterns across model families, highlighting fundamental challenges in spatial reasoning.
     </p>
 
-    <div class="two-col">
+    <div class="img-showcase animate-on-scroll">
+      <img src="static/images/fig_error_analysis.png?v=1775455884" alt="Error Analysis" loading="lazy">
+      <p class="img-caption">
+        (a) Error frequency distribution for baselines across 6 subcategories. (b) Overall error rate breakdown by failure mode.
+      </p>
+    </div>
+
+    <div class="findings-grid animate-on-scroll" style="margin-top:40px;">
+      <div class="finding-card f-gap">
+        <div class="finding-icon"><i class="fas fa-chain-broken"></i></div>
+        <h4>Reasoning Gaps (34.4%)</h4>
+        <p>The dominant failure mode. Models produce incomplete or inconsistent chains of thought. Fine-tuning on MathSpatial-Corpus reduces this error type.</p>
+      </div>
+      <div class="finding-card f-abstract">
+        <div class="finding-icon"><i class="fas fa-ruler-combined"></i></div>
+        <h4>Geometry Violations (33.0%)</h4>
+        <p>Outputs break orthographic projection rules or visibility constraints. Claude models are particularly prone to this error type.</p>
+      </div>
+      <div class="finding-card f-scale">
+        <div class="finding-icon"><i class="fas fa-eye"></i></div>
+        <h4>Projection Errors (12.6%)</h4>
+        <p>Models misinterpret top, side, or front views. Gemini-2.5-flash suffers more from this error category than other models.</p>
+      </div>
+      <div class="finding-card f-train">
+        <div class="finding-icon"><i class="fas fa-shapes"></i></div>
+        <h4>Feature / Scale / Deduction</h4>
+        <p>Feature errors (10.5%): omitting components. Scale errors (7.2%): failing to preserve sizes. Deduction failures (2.3%): inability to synthesize multiple cues.</p>
+      </div>
+    </div>
+
+    <p class="section-desc animate-on-scroll" style="margin-top:32px; font-size:0.95rem;">
+      <strong>Key insight:</strong> The two core challenges &mdash; enforcing low-level geometric consistency and sustaining coherent multi-step reasoning &mdash; remain largely unsolved by current MLLMs. The fine-grained error taxonomy provides a diagnostic foundation for targeted improvements.
+    </p>
+  </div>
+</section>
+
+<!-- ====== Atomic Annotations ====== -->
+<section class="section section-alt" id="annotations">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">Atomic <span class="highlight">Annotations</span></h2>
+    <p class="section-desc animate-on-scroll">
+      Every problem in MathSpatial-Corpus is annotated with structured reasoning traces decomposing spatial reasoning into three atomic operations: <strong>Correlate</strong>, <strong>Constrain</strong>, and <strong>Infer</strong>.
+    </p>
+
+    <div class="srt-ops animate-on-scroll">
+      <div class="srt-op correlate">
+        <div class="op-symbol">C</div>
+        <h4>Correlate</h4>
+        <p>Establish cross-view correspondences between geometric features.</p>
+      </div>
+      <div class="srt-op constrain">
+        <div class="op-symbol">K</div>
+        <h4>Constrain</h4>
+        <p>Apply geometric rules, projection constraints, and consistency conditions.</p>
+      </div>
+      <div class="srt-op infer">
+        <div class="op-symbol">I</div>
+        <h4>Infer</h4>
+        <p>Deduce hidden attributes, measurements, or final answers from evidence.</p>
+      </div>
+    </div>
+
+    <div class="two-col animate-on-scroll">
       <div>
         <div class="img-showcase">
-          <img src="static/images/fig_srt_analysis.png" alt="SRT Analysis" loading="lazy">
+          <img src="static/images/fig_srt_analysis.png?v=1775455884" alt="Atomic Operation Analysis" loading="lazy">
           <p class="img-caption">
-            (a) Operation distribution: Infer ~42% > Correlate ~33% > Constrain ~25%.
+            (a) Atomic operation distribution: Infer ~42% &gt; Correlate ~33% &gt; Constrain ~25%.
             (b) Average trace length: 5.1 steps.
           </p>
         </div>
       </div>
       <div>
-        <h3 style="margin-bottom:16px;">SRT Format Example</h3>
+        <h3 style="margin-bottom:20px; font-weight:700;">Trace Format Example</h3>
         <div class="code-block">
 <span class="bracket">{</span>
   <span class="key">"reasoning"</span>: <span class="bracket">[</span>
@@ -401,39 +629,147 @@
   <span class="key">"final_answer"</span>: <span class="str">"C"</span>
 <span class="bracket">}</span>
         </div>
-        <div style="margin-top:20px;">
-          <table style="width:100%; font-size:.88rem; border-collapse:collapse;">
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:10px; font-weight:600; color:var(--primary);">Correlate</td>
-              <td style="padding:10px;">Establish cross-view correspondences</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:10px; font-weight:600; color:#e67e22;">Constrain</td>
-              <td style="padding:10px;">Apply geometric rules or constraints</td>
-            </tr>
-            <tr>
-              <td style="padding:10px; font-weight:600; color:#27ae60;">Infer</td>
-              <td style="padding:10px;">Deduce conclusions from evidence</td>
-            </tr>
-          </table>
-        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====== Comparison ====== -->
-<section class="section" id="comparison">
+<!-- ====== Supplementary Material ====== -->
+<section class="section" id="supplementary">
   <div class="container">
-    <h2 class="section-title">Benchmark Comparison</h2>
-    <p class="section-desc">
-      MathSpatial vs. existing benchmarks in mathematical and spatial reasoning.
+    <h2 class="section-title animate-on-scroll">Supplementary <span class="highlight">Material</span></h2>
+    <p class="section-desc animate-on-scroll">
+      Additional details from the paper, including case studies, atomic annotation examples, and ablation studies. Click to expand.
     </p>
-    <div class="img-showcase">
-      <img src="static/images/fig_comparison_table.png" alt="Benchmark Comparison" loading="lazy">
-      <p class="img-caption">
-        Comprehensive comparison with existing datasets across multiple dimensions.
-      </p>
+
+    <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
+      <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
+        <i class="fas fa-search-plus" style="margin-right:8px;"></i>Case Studies &mdash; Qualitative Examples across Model Families
+      </summary>
+      <div class="img-showcase" style="margin-top:16px;">
+        <img src="static/images/case_studies.png" alt="Case Studies" loading="lazy">
+        <p class="img-caption">Qualitative comparison of model responses on representative problems. Different models exhibit distinct failure patterns: GPT-5 excels at holistic recognition but struggles with abstract computation; Claude models often violate geometric projection rules; open-source models frequently produce reasoning gaps.</p>
+      </div>
+    </details>
+
+    <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
+      <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
+        <i class="fas fa-project-diagram" style="margin-right:8px;"></i>Atomic Annotation &mdash; Complete Worked Example
+      </summary>
+      <div class="img-showcase" style="margin-top:16px;">
+        <img src="static/images/srt_example.png" alt="SRT Worked Example" loading="lazy">
+        <p class="img-caption">A complete atomic annotation example showing the Correlate &rarr; Constrain &rarr; Infer paradigm applied to a multi-view spatial reasoning problem.</p>
+      </div>
+    </details>
+
+    <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
+      <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
+        <i class="fas fa-flask" style="margin-right:8px;"></i>Ablation &mdash; Impact of Removing Individual Atomic Operations
+      </summary>
+      <div class="img-showcase" style="margin-top:16px;">
+        <img src="static/images/srt_ablation.png" alt="SRT Ablation" loading="lazy">
+        <p class="img-caption">Ablation study: complete solution with all three atomic operations versus degraded outputs when each operation (Correlate, Constrain, or Infer) is removed in turn. Removing any single operation leads to distinct failure modes.</p>
+      </div>
+    </details>
+
+    <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
+      <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
+        <i class="fas fa-list-ol" style="margin-right:8px;"></i>Subcategory Definitions &mdash; 11 Fine-Grained Task Types
+      </summary>
+      <div style="margin-top:16px; padding:20px; background:var(--bg-alt); border-radius:var(--radius);">
+        <h4 style="color:var(--primary); margin-bottom:12px;">Holistic Recognition (4 subtypes)</h4>
+        <ul style="margin-left:20px; margin-bottom:16px; line-height:2;">
+          <li><strong>C3M</strong> &mdash; Complex 3-View to 3D Matching</li>
+          <li><strong>3VM</strong> &mdash; 3D Model to 3-View Matching</li>
+          <li><strong>IVI</strong> &mdash; Incorrect View Identification</li>
+          <li><strong>CR</strong> &mdash; Component Recognition</li>
+        </ul>
+        <h4 style="color:var(--accent); margin-bottom:12px;">Generative Inference (3 subtypes)</h4>
+        <ul style="margin-left:20px; margin-bottom:16px; line-height:2;">
+          <li><strong>MVC</strong> &mdash; Missing View Completion</li>
+          <li><strong>VT</strong> &mdash; Viewpoint Transformation</li>
+          <li><strong>PRA</strong> &mdash; Projection Rule Application</li>
+        </ul>
+        <h4 style="color:#45B7D1; margin-bottom:12px;">Abstract Deduction (4 subtypes)</h4>
+        <ul style="margin-left:20px; line-height:2;">
+          <li><strong>GPC</strong> &mdash; Geometric Property Calculation</li>
+          <li><strong>FPBI</strong> &mdash; Function &amp; Physical Behavior Inference</li>
+          <li><strong>SCP</strong> &mdash; Structural Change Prediction</li>
+          <li><strong>PPCD</strong> &mdash; Path Planning &amp; Collision Detection</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
+      <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
+        <i class="fas fa-database" style="margin-right:8px;"></i>Data Construction Pipeline &mdash; Multi-Stage Quality Control
+      </summary>
+      <div style="margin-top:16px; padding:20px; background:var(--bg-alt); border-radius:var(--radius);">
+        <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-bottom:16px;">
+          <span style="padding:8px 16px; background:#4361ee; color:white; border-radius:8px; font-weight:600;">35,428 Raw Candidates</span>
+          <span style="padding:8px 12px; color:var(--text-light);">&rarr;</span>
+          <span style="padding:8px 16px; background:#7209B7; color:white; border-radius:8px; font-weight:600;">Manual Filtering (61.1%)</span>
+          <span style="padding:8px 12px; color:var(--text-light);">&rarr;</span>
+          <span style="padding:8px 16px; background:#FF6B6B; color:white; border-radius:8px; font-weight:600;">Deduplication (MD5 + SBERT + GPT-4.1 vision)</span>
+          <span style="padding:8px 12px; color:var(--text-light);">&rarr;</span>
+          <span style="padding:8px 16px; background:#FF9F43; color:white; border-radius:8px; font-weight:600;">Geometric Consistency Check</span>
+          <span style="padding:8px 12px; color:var(--text-light);">&rarr;</span>
+          <span style="padding:8px 16px; background:#2ECC71; color:white; border-radius:8px; font-weight:600;">10,000 Final Problems</span>
+        </div>
+        <p style="font-size:0.9rem; color:var(--text-light);">Sources: Baidu Wenku, Zujuan, Provincial exam archives. Filtering thresholds: &ge;0.90 (remove), 0.85&ndash;0.90 (manual review), &lt;0.85 (retain). 1K items flagged for human-in-loop review; 60% corrected, 40% removed.</p>
+      </div>
+    </details>
+
+    <details class="collapsible animate-on-scroll" style="margin-bottom:24px;">
+      <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
+        <i class="fas fa-users" style="margin-right:8px;"></i>Human Evaluation Protocol
+      </summary>
+      <div style="margin-top:16px; padding:20px; background:var(--bg-alt); border-radius:var(--radius);">
+        <p><strong>Participants:</strong> 80 middle/high school students &middot; <strong>Redundancy:</strong> 20&times; per problem &middot; <strong>Total responses:</strong> 40,000</p>
+        <p><strong>Conditions:</strong> Closed-book, no calculators/software, pen and paper only</p>
+        <p><strong>Result:</strong> Micro-averaged accuracy = <strong>96.3%</strong></p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ====== Download / Access ====== -->
+<section class="section section-alt" id="download">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">Download &amp; <span class="highlight">Access</span></h2>
+    <p class="section-desc animate-on-scroll">
+      MathSpatial is fully open-source. Access the dataset and code through the links below.
+    </p>
+
+    <div class="access-grid animate-on-scroll">
+      <div class="access-card">
+        <div class="access-icon github"><i class="fab fa-github"></i></div>
+        <h3>GitHub Repository</h3>
+        <p>Source code, evaluation scripts, benchmark data, and documentation.</p>
+        <a class="btn-sm btn-dark" href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+      </div>
+      <div class="access-card">
+        <div class="access-icon hf"><span style="font-size:1.6rem">&#129303;</span></div>
+        <h3>HuggingFace Dataset</h3>
+        <p>Full dataset with all 10K problems, images, and structured reasoning traces.</p>
+        <a class="btn-sm btn-orange" href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank"><span>&#129303;</span> HuggingFace</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== License ====== -->
+<section class="section section-alt" id="license">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">License</h2>
+    <p class="section-desc animate-on-scroll">
+      Released under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> license.
+    </p>
+    <div class="license-grid animate-on-scroll" style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:600px; margin:0 auto;">
+      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> Academic research use</div>
+      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> Attribution required</div>
+      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> Derivative works (same license)</div>
+      <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#fef2f2; border-radius:10px; border:1px solid #fecaca;"><i class="fas fa-times-circle" style="color:#ef4444; font-size:1.1rem;"></i> Commercial use</div>
     </div>
   </div>
 </section>
@@ -441,16 +777,26 @@
 <!-- ====== Citation ====== -->
 <section class="section section-alt" id="citation">
   <div class="container">
-    <h2 class="section-title">Citation</h2>
-    <p class="section-desc">If you find MathSpatial useful in your research, please cite our paper:</p>
-    <div class="citation-block" id="citationBlock">
+    <h2 class="section-title animate-on-scroll">Citation</h2>
+    <p class="section-desc animate-on-scroll">If you find MathSpatial useful in your research, please cite our paper:</p>
+    <div class="citation-block animate-on-scroll" id="citationBlock">
       <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> Copy</button>
-<pre>@article{mathspatial2025,
-  title={MathSpatial: A Large-Scale Dataset for Evaluating Mathematical
-         Spatial Reasoning in Multimodal Large Language Models},
-  author={MathSpatial Team},
-  journal={ACM Multimedia},
-  year={2025}
+<pre>@inproceedings{lu2026mathspatial,
+  title     = {Do MLLMs Really Understand Space? A Mathematical
+               Spatial Reasoning Evaluation},
+  author    = {Lu, Shuo and Cheng, Jianjie and Xu, Yinuo and
+               Yu, Yongcan and Sheng, Lijun and Wang, Peijie and
+               Jiang, Siru and Hu, Yongguan and Ling, Run and
+               Shao, Yihua and Ma, Ao and Feng, Wei and
+               He, Lingxiao and Wang, Meng and Xie, Qianlong and
+               Wang, Xingxing and Sebe, Nicu and He, Ran and
+               Liang, Jian},
+  booktitle = {Proceedings of the 34th ACM International Conference
+               on Multimedia (MM '26)},
+  year      = {2026},
+  publisher = {ACM},
+  note      = {Dataset Track},
+  url       = {https://shuolucs.github.io/MathSpatial}
 }</pre>
     </div>
   </div>
@@ -459,23 +805,32 @@
 <!-- ====== Footer ====== -->
 <footer class="footer">
   <div class="container">
+    <div class="footer-brand"><span>Math</span>Spatial</div>
     <div class="footer-links">
-      <a href="#" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
-      <a href="https://github.com/MathSpatial/MathSpatial" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank"><span>&#129303;</span> HuggingFace</a>
       <a href="#leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a>
-      <a href="#citation"><i class="fas fa-quote-left"></i> Citation</a>
+      <a href="#citation"><i class="fas fa-quote-left"></i> Cite</a>
     </div>
-    <p>MathSpatial &copy; 2025. Released under CC BY-NC-SA 4.0 License.</p>
+    <p>MathSpatial &copy; 2026 &middot; Released under CC BY-NC-SA 4.0 License &middot; ACM Multimedia 2026</p>
   </div>
 </footer>
 
+<!-- Scroll to Top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ====== Scripts ====== -->
 <script>
-/* Navbar scroll effect */
+/* ---- Navbar scroll effect ---- */
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  const btn = document.getElementById('scrollTop');
+  btn.classList.toggle('visible', window.scrollY > 400);
 });
 
-/* Mobile nav */
+/* ---- Mobile nav ---- */
 function toggleNav() {
   document.getElementById('navLinks').classList.toggle('active');
 }
@@ -485,7 +840,34 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   });
 });
 
-/* Copy citation */
+/* ---- Scroll animations (IntersectionObserver) ---- */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+/* ---- Leaderboard filter ---- */
+document.querySelectorAll('.lb-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.lb-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('#leaderboardTable tbody tr').forEach(row => {
+      if (filter === 'all') {
+        row.style.display = '';
+      } else {
+        row.style.display = row.dataset.type === filter || row.dataset.type === 'human' ? '' : 'none';
+      }
+    });
+  });
+});
+
+/* ---- Copy citation ---- */
 function copyCitation() {
   const text = document.querySelector('#citationBlock pre').textContent;
   navigator.clipboard.writeText(text).then(() => {
@@ -494,6 +876,90 @@ function copyCitation() {
     setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
   });
 }
+
+/* ---- Particle background ---- */
+(function() {
+  const canvas = document.getElementById('particles-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let w, h;
+
+  function resize() {
+    w = canvas.width = canvas.parentElement.offsetWidth;
+    h = canvas.height = canvas.parentElement.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      this.size = Math.random() * 2 + 0.5;
+      this.speedX = (Math.random() - 0.5) * 0.5;
+      this.speedY = (Math.random() - 0.5) * 0.5;
+      this.opacity = Math.random() * 0.5 + 0.1;
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x < 0 || this.x > w) this.speedX *= -1;
+      if (this.y < 0 || this.y > h) this.speedY *= -1;
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${this.opacity})`;
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => { p.update(); p.draw(); });
+    // Draw connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(255,255,255,${0.08 * (1 - dist / 120)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+/* ---- Smooth active nav link highlighting ---- */
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.style.color = '';
+    a.style.background = '';
+    if (a.getAttribute('href') === `#${current}`) {
+      a.style.color = 'var(--primary)';
+      a.style.background = 'rgba(67,97,238,0.06)';
+    }
+  });
+});
 </script>
 
 </body>
