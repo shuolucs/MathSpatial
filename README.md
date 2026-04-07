@@ -1,7 +1,11 @@
 <h1 align="center">MathSpatial</h1>
 
 <p align="center">
-  <b>A Large-Scale Dataset for Evaluating Mathematical Spatial Reasoning in Multimodal Large Language Models</b>
+  <b>Do MLLMs Really Understand Space? A Mathematical Spatial Reasoning Evaluation</b>
+</p>
+
+<p align="center">
+  <i>Submitted to ACM Multimedia 2026 — Dataset Track</i>
 </p>
 
 <p align="center">
@@ -9,9 +13,8 @@
   <a href="#key-findings">Key Findings</a> •
   <a href="#dataset-statistics">Statistics</a> •
   <a href="#getting-started">Getting Started</a> •
-  <a href="#structured-reasoning-traces">SRT</a> •
-  <a href="#leaderboard">Leaderboard</a> •
-  <a href="#citation">Citation</a>
+  <a href="#atomic-annotations">Annotations</a> •
+  <a href="#leaderboard">Leaderboard</a>
 </p>
 
 <p align="center">
@@ -26,13 +29,13 @@
 
 ## Overview
 
-**MathSpatial** is the first large-scale, open dataset ecosystem dedicated to **mathematical spatial reasoning** in Multimodal Large Language Models (MLLMs). It provides 10,000 problems with 26,000+ geometric diagrams, covering tasks from multi-view recognition to geometric property calculation.
+**MathSpatial** is a large-scale, open dataset ecosystem dedicated to **mathematical spatial reasoning** in Multimodal Large Language Models (MLLMs). It provides 10,000 problems with 26,000+ geometric diagrams, covering tasks from multi-view recognition to geometric property calculation.
 
 <p align="center">
   <img src="assets/overview.png" width="95%" alt="MathSpatial Overview">
 </p>
 
-> **Left:** Humans achieve over 95% accuracy on MathSpatial-Bench while most MLLMs remain below 60%, revealing a striking capability gap. **Right:** Three core challenges and how MathSpatial addresses them.
+> **Left:** Humans achieve over 95% accuracy on MathSpatial-Bench while most MLLMs remain below 60%. **Right:** Three core challenges and how MathSpatial addresses them.
 
 ### Components
 
@@ -40,7 +43,7 @@
 |:---|:---:|:---|
 | **MathSpatial-Bench** | 2,000 problems, 5,837 images | Diagnostic evaluation benchmark with calibrated difficulty |
 | **MathSpatial-Corpus** | 8,000 problems, 20,308+ images | Training dataset with verified solutions |
-| **MathSpatial-SRT** | 10,000 structured annotations | Structured Reasoning Traces (Correlate → Constrain → Infer) |
+| **Atomic Annotations** | 10,000 structured annotations | Structured reasoning traces (Correlate → Constrain → Infer) |
 
 ### Task Examples
 
@@ -54,10 +57,10 @@
 
 ## Key Findings
 
-- **Massive human–model gap:** Humans achieve 96.3% accuracy; the best MLLM (GPT-5) reaches only 58.5%
-- **Abstract deduction is the hardest:** Most models score below 5% on Geometric Property Calculation (GPC)
-- **Scaling alone doesn't help:** Qwen2.5-VL-72B (19.7%) barely improves over its 7B variant (17.8%)
-- **Training on MathSpatial works:** Fine-tuned models improve accuracy while reducing token usage by 20–30%
+- **Large human–model gap:** Humans achieve 96.3% accuracy; the best-performing MLLM (GPT-5) reaches 58.5%, indicating a 37.8 percentage-point gap
+- **Abstract deduction is the hardest:** Most models score below 5% on Geometric Property Calculation (GPC), the most abstract subtype
+- **Scaling alone shows limited gains:** Qwen2.5-VL-72B (19.7%) barely improves over its 7B variant (17.8%)
+- **Training on MathSpatial helps:** Fine-tuned models show consistent accuracy improvements while reducing token usage by 20–30%
 
 <p align="center">
   <img src="assets/fig_overall_accuracy.png" width="80%" alt="Overall Accuracy">
@@ -94,7 +97,7 @@ The benchmark covers **Holistic Recognition** (518 problems), **Generative Infer
 | Problems | 2,000 | 8,000 | **10,000** |
 | Images | 5,837 | 20,308+ | **26,145+** |
 | Avg images/problem | 2.9 | 2.6 | 2.6 |
-| SRT coverage | 100% | 99.97% | — |
+| Annotation coverage | 100% | 99.97% | — |
 | English translation | 98.2% | 99.4% | — |
 | Question types | MC 58% / Fill 42% | MC 46% / Fill 54% | — |
 
@@ -104,7 +107,7 @@ The benchmark covers **Holistic Recognition** (518 problems), **Generative Infer
   <img src="assets/fig_images_text_stats.png" width="85%" alt="Images and Text Stats">
 </p>
 
-> **(a)** Over 60% of problems contain 2+ images (avg 2.9 for Bench). **(b)** Question length: Chinese avg ~80 chars, English avg ~190 chars.
+> **(a)** Images per problem distribution for Bench and Corpus. **(b)** Question length distribution across character count bins.
 
 See [DATASHEET.md](DATASHEET.md) for the full statistical breakdown.
 
@@ -122,15 +125,15 @@ Starting from **35,428 raw candidates** sourced from public educational reposito
 2. **Standardization & Deduplication** — Unified JSON schema, MD5 + GPT-4.1 visual similarity filtering
 3. **Geometric Consistency Checking** — Rule-based verification with human-in-the-loop review
 4. **Solution Verification** — Official solutions preserved; ~800 problems with graduate-student-derived solutions
-5. **Annotation** — English translation, 3×11 taxonomy classification, SRT generation
+5. **Annotation** — English translation, 3×11 taxonomy classification, atomic annotation generation
 
 Final output: **10K high-quality problems** split into Bench (2K) and Corpus (8K).
 
 ---
 
-## Structured Reasoning Traces
+## Atomic Annotations
 
-Every problem is annotated with **Structured Reasoning Traces (SRT)** decomposing spatial problem-solving into three atomic operations:
+Every problem is annotated with **structured reasoning traces** decomposing spatial problem-solving into three atomic operations:
 
 | Operation | Symbol | Purpose | Example |
 |:---|:---:|:---|:---|
@@ -139,12 +142,12 @@ Every problem is annotated with **Structured Reasoning Traces (SRT)** decomposin
 | **Infer** | `infer` | Deduce conclusions from evidence | *"A solid with triangular projections and circular top is a cone"* |
 
 <p align="center">
-  <img src="assets/fig_srt_analysis.png" width="85%" alt="SRT Analysis">
+  <img src="assets/fig_srt_analysis.png" width="85%" alt="Atomic Annotation Analysis">
 </p>
 
 > **(a)** Consistent operation distribution: Infer (~42%) > Correlate (~33%) > Constrain (~25%). **(b)** Average trace length is 5.1 steps, with most traces spanning 3–7 operations.
 
-### SRT Format
+### Annotation Format
 
 ```json
 {
@@ -179,7 +182,7 @@ Every problem is annotated with **Structured Reasoning Traces (SRT)** decomposin
 | 7 | **MathSpatial-Qwen-7B** | **Ours** | **22.1%** | IVI (46.2%) | GPC (0.0%) | **352** |
 | 8 | GPT-4.1 | Closed | 22.6% | PRA (55.2%) | GPC (0.0%) | 676 |
 
-> Full results for 16+ models available in the paper. Our fine-tuned models match or exceed much larger closed-source systems while using **50–60% fewer tokens**.
+> Full results for 16+ models available in the paper. Our fine-tuned models achieve competitive accuracy compared to larger closed-source systems while using **50–60% fewer tokens**.
 
 ---
 
@@ -197,7 +200,7 @@ MathSpatial/
 ├── assets/                      # Figures and visualizations
 ├── benchmark/                   # MathSpatial-Bench (2,000 problems)
 │   └── questionXXXXX/
-│       ├── data.json            # Problem metadata + SRT annotations
+│       ├── data.json            # Problem metadata + atomic annotations
 │       └── images/              # Geometric diagrams (PNG)
 ├── corpus/                      # MathSpatial-Corpus (8,000 problems)
 │   └── questionXXXXX/
@@ -247,7 +250,7 @@ Each `data.json` contains:
 | `question_type` | `选择题` (multiple choice) or `填空题` (fill-in-blank) |
 | `main_category` | One of: Holistic Recognition, Generative Inference, Abstract Deduction |
 | `sub_category` | One of 11 subtypes (CR, 3VM, IVI, C3M, PRA, MVC, VT, PPCD, FPBI, SCP, GPC) |
-| `atomic_cot_gpt_4o_*` | Structured Reasoning Trace (SRT) annotation |
+| `atomic_cot_gpt_4o_*` | Atomic reasoning trace annotation |
 
 ### Running Evaluation
 
@@ -278,4 +281,3 @@ This dataset is released under the [Creative Commons Attribution-NonCommercial-S
 | Attribution required | ✅ Required |
 | Commercial use | ❌ Not allowed |
 | Derivative works (same license) | ✅ Allowed |
-
