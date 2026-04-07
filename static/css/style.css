@@ -41,6 +41,8 @@ body {
   background: var(--bg);
   line-height: 1.7;
   overflow-x: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
 a:hover { color: var(--primary-dark); }
@@ -113,18 +115,26 @@ img { max-width: 100%; height: auto; }
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.nav-links { display: flex; gap: 8px; list-style: none; align-items: center; }
+.nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
 .nav-links a {
-  font-size: 0.88rem; font-weight: 500; color: var(--text-light);
-  padding: 6px 14px; border-radius: 8px;
+  font-size: 0.85rem; font-weight: 500; color: var(--text-light);
+  padding: 6px 12px; border-radius: 8px;
   transition: all var(--transition);
+  white-space: nowrap;
 }
 .nav-links a:hover { color: var(--primary); background: rgba(67,97,238,0.06); }
 .nav-links .nav-cta {
-  background: var(--primary); color: #fff !important;
-  font-weight: 600; padding: 8px 18px;
+  background: transparent;
+  color: var(--primary) !important;
+  font-weight: 600; padding: 6px 14px;
+  border: 1.5px solid var(--primary);
+  border-radius: 8px;
 }
-.nav-links .nav-cta:hover { background: var(--primary-dark); transform: translateY(-1px); }
+.nav-links .nav-cta:hover {
+  background: var(--primary);
+  color: #fff !important;
+  transform: translateY(-1px);
+}
 .lang-switch {
   display: flex; align-items: center; gap: 2px;
   font-size: 0.82rem; font-weight: 600;
@@ -186,13 +196,22 @@ body.lang-zh { font-family: 'Noto Sans SC', 'Inter', system-ui, -apple-system, s
   background-clip: text;
 }
 .hero .subtitle {
-  font-size: 1.2rem;
-  color: rgba(255,255,255,0.7);
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.6);
   max-width: 720px; margin: 0 auto 36px;
   line-height: 1.8;
-  animation: fadeInUp 0.7s ease-out 0.2s both;
+  animation: fadeInUp 0.7s ease-out 0.25s both;
 }
-.hero .subtitle strong { color: rgba(255,255,255,0.95); }
+.hero .subtitle strong { color: rgba(255,255,255,0.85); }
+.hero-paper-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  max-width: 760px; margin: 0 auto 16px;
+  line-height: 1.6;
+  animation: fadeInUp 0.7s ease-out 0.15s both;
+  font-style: italic;
+}
 
 /* Hero Badges */
 .hero-badges {
@@ -243,12 +262,12 @@ body.lang-zh { font-family: 'Noto Sans SC', 'Inter', system-ui, -apple-system, s
 }
 .btn-primary:hover { box-shadow: 0 6px 30px rgba(67,97,238,0.5); color: #fff; }
 .btn-github {
-  background: rgba(255,255,255,0.1);
+  background: #24292e;
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
+  border: 1px solid #24292e;
+  box-shadow: 0 4px 20px rgba(36,41,46,0.3);
 }
-.btn-github:hover { background: rgba(255,255,255,0.18); color: #fff; }
+.btn-github:hover { background: #1a1a2e; box-shadow: 0 6px 30px rgba(36,41,46,0.5); color: #fff; }
 .btn-hf {
   background: linear-gradient(135deg, #ff9d00, #ffb347);
   color: #1a1a2e;
@@ -256,11 +275,12 @@ body.lang-zh { font-family: 'Noto Sans SC', 'Inter', system-ui, -apple-system, s
 }
 .btn-hf:hover { box-shadow: 0 6px 30px rgba(255,157,0,0.5); color: #1a1a2e; }
 .btn-outline-light {
-  background: transparent;
-  border: 2px solid rgba(255,255,255,0.3);
+  background: linear-gradient(135deg, var(--primary), #7209b7);
+  border: none;
   color: #fff;
+  box-shadow: 0 4px 20px rgba(67,97,238,0.3);
 }
-.btn-outline-light:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.btn-outline-light:hover { box-shadow: 0 6px 30px rgba(67,97,238,0.5); color: #fff; }
 .btn-accent {
   background: linear-gradient(135deg, var(--accent), #ff6b9d);
   color: #fff;
@@ -297,7 +317,7 @@ body.lang-zh { font-family: 'Noto Sans SC', 'Inter', system-ui, -apple-system, s
 .section-title .highlight { color: var(--primary); }
 .section-desc {
   text-align: center; color: var(--text-light);
-  max-width: 700px; margin: 0 auto 56px;
+  max-width: 780px; margin: 0 auto 56px;
   font-size: 1.05rem; line-height: 1.8;
 }
 
@@ -384,7 +404,7 @@ body.lang-zh { font-family: 'Noto Sans SC', 'Inter', system-ui, -apple-system, s
 .component-card .card-stat.bench { background: #e8f0fe; color: var(--primary); }
 .component-card .card-stat.corpus { background: #e6f9ed; color: #059669; }
 .component-card .card-stat.srt { background: #fef3e8; color: #d97706; }
-.component-card p { font-size: 0.92rem; color: var(--text-light); line-height: 1.7; }
+.component-card p { font-size: 0.92rem; color: var(--text-light); line-height: 1.7; overflow-wrap: break-word; }
 
 /* ---------- Image Showcase ---------- */
 .img-showcase {
@@ -403,6 +423,13 @@ body.lang-zh { font-family: 'Noto Sans SC', 'Inter', system-ui, -apple-system, s
 .img-caption {
   margin-top: 16px; font-size: 0.88rem;
   color: var(--text-light); line-height: 1.6;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+.img-caption-lg {
+  margin-top: 16px; font-size: 0.95rem;
+  color: var(--text-light); line-height: 1.7;
+  text-align: center;
 }
 
 /* ---------- Two-Column ---------- */
@@ -534,6 +561,30 @@ body.lang-zh { font-family: 'Noto Sans SC', 'Inter', system-ui, -apple-system, s
 }
 .finding-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
 
+/* ---------- Key Insight Callout ---------- */
+.key-insight-box {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 24px 28px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.key-insight-header {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 1rem; font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+.key-insight-header i { font-size: 1.1rem; color: #d97706; }
+.key-insight-box p {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin: 0;
+}
+
 /* ---------- SRT Section ---------- */
 .srt-ops {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
@@ -648,7 +699,7 @@ body.lang-zh { font-family: 'Noto Sans SC', 'Inter', system-ui, -apple-system, s
   position: relative; overflow-x: auto;
   max-width: 800px; margin: 0 auto;
 }
-.citation-block pre { white-space: pre-wrap; word-break: break-word; }
+.citation-block pre { white-space: pre-wrap; word-break: break-word; overflow-wrap: break-word; }
 .copy-btn {
   position: absolute; top: 14px; right: 14px;
   background: var(--primary); color: #fff;

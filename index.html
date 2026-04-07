@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MathSpatial | Large-Scale Benchmark for Mathematical Spatial Reasoning</title>
-  <meta name="description" content="MathSpatial: the first large-scale dataset ecosystem with 10K problems and 26K geometric diagrams for evaluating mathematical spatial reasoning in Multimodal Large Language Models. ACM Multimedia 2026.">
+  <title>MathSpatial | Benchmark for Mathematical Spatial Reasoning</title>
+  <meta name="description" content="MathSpatial: a large-scale dataset ecosystem with 10K problems and 26K geometric diagrams for evaluating mathematical spatial reasoning in Multimodal Large Language Models. Submitted to ACM Multimedia 2026.">
   <meta name="keywords" content="MathSpatial, spatial reasoning, benchmark, dataset, MLLM, multimodal, ACM Multimedia, geometric reasoning">
   <meta property="og:title" content="MathSpatial Benchmark">
-  <meta property="og:description" content="10K problems, 26K diagrams, 16+ models evaluated. The first large-scale benchmark for mathematical spatial reasoning.">
+  <meta property="og:description" content="10K problems, 26K diagrams, 16+ models evaluated. A large-scale benchmark for mathematical spatial reasoning.">
   <meta property="og:type" content="website">
-  <link rel="alternate" hreflang="en" href="index.html">
-  <link rel="alternate" hreflang="zh-Hans" href="index_zh.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
@@ -18,25 +16,6 @@
   <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-
-<!-- ====== Landing Splash ====== -->
-<div id="splash" style="position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#0b0e1a 0%,#1a1a3e 50%,#3a0ca3 100%); cursor:pointer; transition:opacity 0.6s ease;" onclick="this.style.opacity='0'; setTimeout(()=>this.style.display='none',600);">
-  <div style="text-align:center; color:white; animation:fadeInUp 0.8s ease;">
-    <div style="font-size:4rem; font-weight:900; letter-spacing:-2px; margin-bottom:16px;">
-      <span style="background:linear-gradient(90deg,#4361ee,#4cc9f0,#f72585);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">MathSpatial</span>
-    </div>
-    <p style="font-size:1.2rem; color:rgba(255,255,255,0.7); margin-bottom:8px;">
-      Benchmarking Mathematical Spatial Reasoning of MLLMs
-    </p>
-    <p style="font-size:0.9rem; color:rgba(255,255,255,0.4); margin-bottom:32px;">
-      ACM Multimedia 2026 &mdash; Dataset Track
-    </p>
-    <div style="display:inline-flex; align-items:center; gap:8px; padding:12px 32px; border:2px solid rgba(255,255,255,0.3); border-radius:40px; font-size:1rem; color:rgba(255,255,255,0.8); transition:all 0.3s;">
-      <span>Enter Site</span>
-      <i class="fas fa-arrow-right" style="font-size:0.9rem;"></i>
-    </div>
-  </div>
-</div>
 
 <!-- ====== Navbar ====== -->
 <nav class="navbar" id="navbar">
@@ -55,11 +34,6 @@
       <li><a href="#download">Download</a></li>
       <li><a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank" class="nav-cta"><i class="fas fa-database"></i> Dataset</a></li>
     </ul>
-    <div class="lang-switch" role="navigation" aria-label="Language">
-      <span class="lang-active">EN</span>
-      <span class="lang-sep" aria-hidden="true">|</span>
-      <a href="index_zh.html" hreflang="zh-Hans" lang="zh-Hans">中文</a>
-    </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
       <i class="fas fa-bars"></i>
     </div>
@@ -71,14 +45,13 @@
   <canvas id="particles-canvas"></canvas>
   <div class="container hero-content">
     <div class="hero-label">
-      <span class="label-icon">&#127942;</span> ACM Multimedia 2026 &mdash; Dataset Track
+      <span class="label-icon">&#128220;</span> Submitted to ACM Multimedia 2026 &mdash; Dataset Track
     </div>
     <h1>
       <span class="gradient-text">MathSpatial</span>
     </h1>
-    <p class="subtitle">
-      The First Large-Scale Dataset Ecosystem for Evaluating
-      <strong>Mathematical Spatial Reasoning</strong> in Multimodal Large Language Models
+    <p class="hero-paper-title">
+      Do MLLMs Really Understand Space? A Mathematical Spatial Reasoning Evaluation
     </p>
 
     <div class="hero-badges">
@@ -95,9 +68,7 @@
       <a class="btn btn-outline-light" href="#leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a>
     </div>
 
-    <p class="hero-team">
-      Shuo Lu &middot; ACM Multimedia 2026
-    </p>
+    <p class="hero-team">MathSpatial Team</p>
   </div>
 </section>
 
@@ -106,7 +77,7 @@
   <div class="container">
     <h2 class="section-title animate-on-scroll">Overview</h2>
     <p class="section-desc animate-on-scroll">
-      MathSpatial provides 10,000 problems with 26,000+ geometric diagrams, covering tasks from multi-view recognition to geometric property calculation. It is the first open dataset ecosystem dedicated to mathematical spatial reasoning in MLLMs.
+      MathSpatial provides 10,000 problems with 26,000+ geometric diagrams, covering tasks from multi-view recognition to geometric property calculation. It is a large-scale, open dataset ecosystem dedicated to mathematical spatial reasoning in MLLMs.
     </p>
 
     <div class="img-showcase animate-on-scroll">
@@ -191,11 +162,15 @@
     <div class="two-col animate-on-scroll" style="margin-top:48px;">
       <div class="img-showcase">
         <img src="static/images/fig_bench_corpus_comparison.png?v=1775455884" alt="Bench vs Corpus" loading="lazy">
-        <p class="img-caption">Bench vs. Corpus comparison across categories.</p>
+        <p class="img-caption-lg">
+          <strong>Figure:</strong> Bench vs. Corpus comparison across categories.
+        </p>
       </div>
       <div class="img-showcase">
-        <img src="static/images/fig_images_text_stats.png?v=1775455884" alt="Image and Text Stats" loading="lazy">
-        <p class="img-caption">Image count per problem and question length distributions.</p>
+        <img src="static/images/fig_images_text_stats.png?v=1775455886" alt="Image and Text Stats" loading="lazy">
+        <p class="img-caption-lg">
+          <strong>Figure:</strong> Image count per problem and question length distributions.
+        </p>
       </div>
     </div>
 
@@ -292,11 +267,11 @@
   <div class="container">
     <h2 class="section-title animate-on-scroll" style="color:#fff;">&#127942; <span class="highlight">Leaderboard</span></h2>
     <p class="section-desc animate-on-scroll">
-      Overall accuracy on MathSpatial-Bench. Humans achieve 96.3% while the best MLLM (GPT-5) reaches only 58.5%.
+      Overall accuracy on MathSpatial-Bench. Humans achieve 96.3% while the best-performing MLLM (GPT-5) reaches 58.5%.
     </p>
 
     <div class="img-showcase animate-on-scroll" style="margin-bottom:48px;">
-      <img src="static/images/fig_radar_models.png?v=1775455884" alt="Radar Chart" style="max-width:560px; border-radius:16px;" loading="lazy">
+      <img src="static/images/fig_radar_models.png?v=1775455885" alt="Radar Chart" style="max-width:800px; border-radius:16px;" loading="lazy">
     </div>
 
     <div class="leaderboard-controls animate-on-scroll">
@@ -487,7 +462,7 @@
     </div>
 
     <p style="text-align:center; margin-top:24px; font-size:0.88rem; color:rgba(255,255,255,0.5);">
-      Full results for 16+ models available in the paper. Our fine-tuned models match or exceed larger closed-source systems while using 50&ndash;60% fewer tokens. Want to submit your model? <a href="https://github.com/shuolucs/MathSpatial/issues" target="_blank" style="color:var(--primary-light);">Open an issue on GitHub</a>.
+      Full results for 16+ models available in the paper. Our fine-tuned models achieve competitive accuracy compared to larger closed-source systems while using 50&ndash;60% fewer tokens. Want to submit your model? <a href="https://github.com/shuolucs/MathSpatial/issues" target="_blank" style="color:var(--primary-light);">Open an issue on GitHub</a>.
     </p>
   </div>
 </section>
@@ -497,14 +472,14 @@
   <div class="container">
     <h2 class="section-title animate-on-scroll">Key <span class="highlight">Findings</span></h2>
     <p class="section-desc animate-on-scroll">
-      MathSpatial reveals fundamental limitations of current MLLMs in spatial reasoning.
+      MathSpatial reveals notable limitations of current MLLMs in spatial reasoning.
     </p>
 
     <div class="findings-grid animate-on-scroll">
       <div class="finding-card f-gap">
         <div class="finding-icon"><i class="fas fa-exclamation-triangle"></i></div>
-        <h4>Massive Human&ndash;Model Gap</h4>
-        <p>Humans achieve 96.3% accuracy; the best MLLM (GPT-5) reaches only 58.5%, revealing a 37.8 percentage-point gap in spatial reasoning.</p>
+        <h4>Large Human&ndash;Model Gap</h4>
+        <p>Humans achieve 96.3% accuracy; the best-performing MLLM (GPT-5) reaches 58.5%, indicating a 37.8 percentage-point gap in spatial reasoning.</p>
       </div>
       <div class="finding-card f-abstract">
         <div class="finding-icon"><i class="fas fa-brain"></i></div>
@@ -513,13 +488,13 @@
       </div>
       <div class="finding-card f-scale">
         <div class="finding-icon"><i class="fas fa-expand-arrows-alt"></i></div>
-        <h4>Scaling Alone Does Not Help</h4>
-        <p>Qwen2.5-VL-72B (19.7%) barely improves over its 7B variant (17.8%), demonstrating that spatial reasoning cannot be solved by scaling alone.</p>
+        <h4>Scaling Alone Shows Limited Gains</h4>
+        <p>Qwen2.5-VL-72B (19.7%) barely improves over its 7B variant (17.8%), suggesting that spatial reasoning may not be easily addressed by scaling alone.</p>
       </div>
       <div class="finding-card f-train">
         <div class="finding-icon"><i class="fas fa-graduation-cap"></i></div>
-        <h4>Training on MathSpatial Works</h4>
-        <p>Fine-tuned models consistently improve accuracy while reducing token usage by 20&ndash;30% through structured reasoning trace supervision.</p>
+        <h4>Training on MathSpatial Helps</h4>
+        <p>Fine-tuned models show consistent accuracy improvements while reducing token usage by 20&ndash;30% through structured reasoning trace supervision.</p>
       </div>
     </div>
 
@@ -540,7 +515,7 @@
   <div class="container">
     <h2 class="section-title animate-on-scroll">Error <span class="highlight">Analysis</span></h2>
     <p class="section-desc animate-on-scroll">
-      Fine-grained error taxonomy reveals distinct failure patterns across model families, highlighting fundamental challenges in spatial reasoning.
+      Fine-grained error taxonomy reveals distinct failure patterns across model families, highlighting open challenges in spatial reasoning.
     </p>
 
     <div class="img-showcase animate-on-scroll">
@@ -573,9 +548,12 @@
       </div>
     </div>
 
-    <p class="section-desc animate-on-scroll" style="margin-top:32px; font-size:0.95rem;">
-      <strong>Key insight:</strong> The two core challenges &mdash; enforcing low-level geometric consistency and sustaining coherent multi-step reasoning &mdash; remain largely unsolved by current MLLMs. The fine-grained error taxonomy provides a diagnostic foundation for targeted improvements.
-    </p>
+    <div class="key-insight-box animate-on-scroll" style="margin-top:32px;">
+      <div class="key-insight-header">
+        <i class="fas fa-lightbulb"></i> Key Insight
+      </div>
+      <p>The two core challenges &mdash; enforcing low-level geometric consistency and sustaining coherent multi-step reasoning &mdash; remain largely unsolved by current MLLMs. The fine-grained error taxonomy provides a diagnostic foundation for targeted improvements.</p>
+    </div>
   </div>
 </section>
 
@@ -781,34 +759,6 @@
   </div>
 </section>
 
-<!-- ====== Citation ====== -->
-<section class="section section-alt" id="citation">
-  <div class="container">
-    <h2 class="section-title animate-on-scroll">Citation</h2>
-    <p class="section-desc animate-on-scroll">If you find MathSpatial useful in your research, please cite our paper:</p>
-    <div class="citation-block animate-on-scroll" id="citationBlock">
-      <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> Copy</button>
-<pre>@inproceedings{lu2026mathspatial,
-  title     = {Do MLLMs Really Understand Space? A Mathematical
-               Spatial Reasoning Evaluation},
-  author    = {Lu, Shuo and Cheng, Jianjie and Xu, Yinuo and
-               Yu, Yongcan and Sheng, Lijun and Wang, Peijie and
-               Jiang, Siru and Hu, Yongguan and Ling, Run and
-               Shao, Yihua and Ma, Ao and Feng, Wei and
-               He, Lingxiao and Wang, Meng and Xie, Qianlong and
-               Wang, Xingxing and Sebe, Nicu and He, Ran and
-               Liang, Jian},
-  booktitle = {Proceedings of the 34th ACM International Conference
-               on Multimedia (MM '26)},
-  year      = {2026},
-  publisher = {ACM},
-  note      = {Dataset Track},
-  url       = {https://shuolucs.github.io/MathSpatial}
-}</pre>
-    </div>
-  </div>
-</section>
-
 <!-- ====== Footer ====== -->
 <footer class="footer">
   <div class="container">
@@ -817,9 +767,8 @@
       <a href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> GitHub</a>
       <a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank"><span>&#129303;</span> HuggingFace</a>
       <a href="#leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a>
-      <a href="#citation"><i class="fas fa-quote-left"></i> Cite</a>
     </div>
-    <p>MathSpatial &copy; 2026 &middot; Released under CC BY-NC-SA 4.0 License &middot; ACM Multimedia 2026</p>
+    <p>MathSpatial &copy; 2026 &middot; Released under CC BY-NC-SA 4.0 License &middot; Submitted to ACM Multimedia 2026</p>
   </div>
 </footer>
 
@@ -873,16 +822,6 @@ document.querySelectorAll('.lb-filter').forEach(btn => {
     });
   });
 });
-
-/* ---- Copy citation ---- */
-function copyCitation() {
-  const text = document.querySelector('#citationBlock pre').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.querySelector('.copy-btn');
-    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-    setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
-  });
-}
 
 /* ---- Particle background ---- */
 (function() {
