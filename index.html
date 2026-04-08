@@ -48,6 +48,8 @@
           <li><a href="#license">License</a></li>
         </ul>
       </li>
+      <li><a href="#authors">Authors</a></li>
+      <li><a href="#citation">Citation</a></li>
       <li><a href="#supplementary">Supplementary</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
@@ -84,7 +86,7 @@
       <a class="btn btn-outline-light" href="#leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a>
     </div>
 
-    <p class="hero-team">MathSpatial Team</p>
+    <p class="hero-team">Shuo Lu &middot; Jianjie Cheng &middot; Yinuo Xu &middot; Yongcan Yu &middot; Lijun Sheng &middot; Peijie Wang &middot; Siru Jiang &middot; Yongguan Hu &middot; Run Ling &middot; Yihua Shao &middot; Ao Ma &middot; Wei Feng &middot; Lingxiao He &middot; Meng Wang &middot; Qianlong Xie &middot; Xingxing Wang &middot; Nicu Sebe &middot; Ran He &middot; Jian Liang</p>
   </div>
 </section>
 
@@ -657,7 +659,7 @@
       <div class="access-card">
         <div class="access-icon github"><i class="fab fa-github"></i></div>
         <h3>GitHub Repository</h3>
-        <p>Source code, evaluation scripts, benchmark data, and documentation.</p>
+        <p>Source code, benchmark data, and documentation.</p>
         <a class="btn-sm btn-dark" href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
       </div>
       <div class="access-card">
@@ -682,6 +684,67 @@
       <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> Attribution required</div>
       <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> Derivative works (same license)</div>
       <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#fef2f2; border-radius:10px; border:1px solid #fecaca;"><i class="fas fa-times-circle" style="color:#ef4444; font-size:1.1rem;"></i> Commercial use</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== Authors ====== -->
+<section class="section section-alt" id="authors">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">Authors</h2>
+    <div class="animate-on-scroll" style="max-width:860px; margin:0 auto; text-align:center; line-height:2.2;">
+      <p style="font-size:1.05rem; color:var(--text);">
+        <span style="font-weight:600;">Shuo Lu</span><sup>1*</sup>,&ensp;
+        <span style="font-weight:600;">Jianjie Cheng</span><sup>2*</sup>,&ensp;
+        <span style="font-weight:600;">Yinuo Xu</span><sup>1*</sup>,&ensp;
+        <span style="font-weight:600;">Yongcan Yu</span><sup>1*</sup>,&ensp;
+        <span style="font-weight:600;">Lijun Sheng</span><sup>1</sup>,&ensp;
+        <span style="font-weight:600;">Peijie Wang</span><sup>1</sup>,&ensp;
+        <span style="font-weight:600;">Siru Jiang</span><sup>1</sup>,&ensp;
+        <span style="font-weight:600;">Yongguan Hu</span><sup>1</sup>,&ensp;
+        <span style="font-weight:600;">Run Ling</span><sup>3</sup>,&ensp;
+        <span style="font-weight:600;">Yihua Shao</span><sup>4</sup>,&ensp;
+        <span style="font-weight:600;">Ao Ma</span><sup>5</sup>,&ensp;
+        <span style="font-weight:600;">Wei Feng</span><sup>5</sup>,&ensp;
+        <span style="font-weight:600;">Lingxiao He</span><sup>2</sup>,&ensp;
+        <span style="font-weight:600;">Meng Wang</span><sup>2</sup>,&ensp;
+        <span style="font-weight:600;">Qianlong Xie</span><sup>2</sup>,&ensp;
+        <span style="font-weight:600;">Xingxing Wang</span><sup>2</sup>,&ensp;
+        <span style="font-weight:600;">Nicu Sebe</span><sup>6</sup>,&ensp;
+        <span style="font-weight:600;">Ran He</span><sup>1,5</sup>,&ensp;
+        <span style="font-weight:600;">Jian Liang</span><sup>1,5&dagger;</sup>
+      </p>
+      <p style="font-size:0.88rem; color:var(--text-light); margin-top:16px; line-height:2;">
+        <sup>1</sup>NLPR &amp; MAIS, CASIA, Beijing, China&emsp;
+        <sup>2</sup>Meituan Inc., Beijing, China&emsp;
+        <sup>3</sup>Northeastern University, Shenyang, China&emsp;
+        <sup>4</sup>CASIA, Beijing, China&emsp;
+        <sup>5</sup>UCAS, Beijing, China&emsp;
+        <sup>6</sup>University of Trento, Trento, Italy
+      </p>
+      <p style="font-size:0.85rem; color:var(--text-light); margin-top:8px;">
+        <sup>*</sup>Equal contribution&emsp;<sup>&dagger;</sup>Corresponding author
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== Citation ====== -->
+<section class="section" id="citation">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">Citation</h2>
+    <p class="section-desc animate-on-scroll">If you use MathSpatial in your research, please cite our paper:</p>
+    <div class="citation-block animate-on-scroll" id="citationBlock">
+      <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> Copy</button>
+<pre>@article{lu2026mllms,
+  title   = {Do MLLMs Really Understand Space? A Mathematical Reasoning Evaluation},
+  author  = {Lu, Shuo and Cheng, Jianjie and Xu, Yinuo and
+             Yu, Yongcan and Sheng, Lijun and Wang, Peijie and
+             Jiang, Siru and Hu, Yongguan and Ling, Run and
+             Shao, Yihua and others},
+  journal = {arXiv preprint arXiv:2602.11635},
+  year    = {2026}
+}</pre>
     </div>
   </div>
 </section>
@@ -783,6 +846,7 @@
       <a href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> GitHub</a>
       <a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank"><span>&#129303;</span> HuggingFace</a>
       <a href="#leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a>
+      <a href="#citation"><i class="fas fa-quote-left"></i> Citation</a>
     </div>
     <p>MathSpatial &copy; 2026 &middot; Released under CC BY-NC-SA 4.0 License &middot; Submitted to ACM Multimedia 2026</p>
   </div>
@@ -822,6 +886,16 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
 document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+/* ---- Copy citation ---- */
+function copyCitation() {
+  const text = document.querySelector('#citationBlock pre').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.innerHTML = '<i class="fas fa-check"></i> Copied';
+    setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+  });
+}
 
 /* ---- Leaderboard filter ---- */
 document.querySelectorAll('.lb-filter').forEach(btn => {

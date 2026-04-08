@@ -53,6 +53,8 @@
       <li><a href="#error-analysis">错误分析</a></li>
       <li><a href="#annotations">标注</a></li>
       <li><a href="#download">下载</a></li>
+      <li><a href="#authors">作者</a></li>
+      <li><a href="#citation">引用</a></li>
       <li><a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank" class="nav-cta"><i class="fas fa-database"></i> 数据集</a></li>
     </ul>
     <div class="lang-switch" role="navigation" aria-label="语言">
@@ -96,7 +98,7 @@
     </div>
 
     <p class="hero-team">
-      Shuo Lu &middot; ACM Multimedia 2026
+      Shuo Lu &middot; Jianjie Cheng &middot; Yinuo Xu &middot; Yongcan Yu &middot; Lijun Sheng &middot; Peijie Wang &middot; Siru Jiang &middot; Yongguan Hu &middot; Run Ling &middot; Yihua Shao &middot; Ao Ma &middot; Wei Feng &middot; Lingxiao He &middot; Meng Wang &middot; Qianlong Xie &middot; Xingxing Wang &middot; Nicu Sebe &middot; Ran He &middot; Jian Liang
     </p>
   </div>
 </section>
@@ -781,6 +783,47 @@
   </div>
 </section>
 
+<!-- ====== Authors ====== -->
+<section class="section section-alt" id="authors">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">作者</h2>
+    <div class="animate-on-scroll" style="max-width:860px; margin:0 auto; text-align:center; line-height:2.2;">
+      <p style="font-size:1.05rem; color:var(--text);">
+        <span style="font-weight:600;">Shuo Lu</span><sup>1*</sup>,&ensp;
+        <span style="font-weight:600;">Jianjie Cheng</span><sup>2*</sup>,&ensp;
+        <span style="font-weight:600;">Yinuo Xu</span><sup>1*</sup>,&ensp;
+        <span style="font-weight:600;">Yongcan Yu</span><sup>1*</sup>,&ensp;
+        <span style="font-weight:600;">Lijun Sheng</span><sup>1</sup>,&ensp;
+        <span style="font-weight:600;">Peijie Wang</span><sup>1</sup>,&ensp;
+        <span style="font-weight:600;">Siru Jiang</span><sup>1</sup>,&ensp;
+        <span style="font-weight:600;">Yongguan Hu</span><sup>1</sup>,&ensp;
+        <span style="font-weight:600;">Run Ling</span><sup>3</sup>,&ensp;
+        <span style="font-weight:600;">Yihua Shao</span><sup>4</sup>,&ensp;
+        <span style="font-weight:600;">Ao Ma</span><sup>5</sup>,&ensp;
+        <span style="font-weight:600;">Wei Feng</span><sup>5</sup>,&ensp;
+        <span style="font-weight:600;">Lingxiao He</span><sup>2</sup>,&ensp;
+        <span style="font-weight:600;">Meng Wang</span><sup>2</sup>,&ensp;
+        <span style="font-weight:600;">Qianlong Xie</span><sup>2</sup>,&ensp;
+        <span style="font-weight:600;">Xingxing Wang</span><sup>2</sup>,&ensp;
+        <span style="font-weight:600;">Nicu Sebe</span><sup>6</sup>,&ensp;
+        <span style="font-weight:600;">Ran He</span><sup>1,5</sup>,&ensp;
+        <span style="font-weight:600;">Jian Liang</span><sup>1,5&dagger;</sup>
+      </p>
+      <p style="font-size:0.88rem; color:var(--text-light); margin-top:16px; line-height:2;">
+        <sup>1</sup>NLPR &amp; MAIS, CASIA, 北京&emsp;
+        <sup>2</sup>美团 Meituan Inc., 北京&emsp;
+        <sup>3</sup>东北大学, 沈阳&emsp;
+        <sup>4</sup>CASIA, 北京&emsp;
+        <sup>5</sup>中国科学院大学 UCAS, 北京&emsp;
+        <sup>6</sup>特伦托大学, 意大利
+      </p>
+      <p style="font-size:0.85rem; color:var(--text-light); margin-top:8px;">
+        <sup>*</sup>同等贡献&emsp;<sup>&dagger;</sup>通讯作者
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- ====== Citation ====== -->
 <section class="section section-alt" id="citation">
   <div class="container">
@@ -788,22 +831,14 @@
     <p class="section-desc animate-on-scroll">若在研究中使用了 MathSpatial，请引用我们的论文：</p>
     <div class="citation-block animate-on-scroll" id="citationBlock">
       <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> 复制</button>
-<pre>@inproceedings{lu2026mathspatial,
-  title     = {Do MLLMs Really Understand Space? A Mathematical
-               Spatial Reasoning Evaluation},
-  author    = {Lu, Shuo and Cheng, Jianjie and Xu, Yinuo and
-               Yu, Yongcan and Sheng, Lijun and Wang, Peijie and
-               Jiang, Siru and Hu, Yongguan and Ling, Run and
-               Shao, Yihua and Ma, Ao and Feng, Wei and
-               He, Lingxiao and Wang, Meng and Xie, Qianlong and
-               Wang, Xingxing and Sebe, Nicu and He, Ran and
-               Liang, Jian},
-  booktitle = {Proceedings of the 34th ACM International Conference
-               on Multimedia (MM '26)},
-  year      = {2026},
-  publisher = {ACM},
-  note      = {Dataset Track},
-  url       = {https://shuolucs.github.io/MathSpatial}
+<pre>@article{lu2026mllms,
+  title   = {Do MLLMs Really Understand Space? A Mathematical Reasoning Evaluation},
+  author  = {Lu, Shuo and Cheng, Jianjie and Xu, Yinuo and
+             Yu, Yongcan and Sheng, Lijun and Wang, Peijie and
+             Jiang, Siru and Hu, Yongguan and Ling, Run and
+             Shao, Yihua and others},
+  journal = {arXiv preprint arXiv:2602.11635},
+  year    = {2026}
 }</pre>
     </div>
   </div>
