@@ -53,8 +53,6 @@
       <li><a href="#error-analysis">错误分析</a></li>
       <li><a href="#annotations">标注</a></li>
       <li><a href="#download">下载</a></li>
-      <li><a href="#authors">作者</a></li>
-      <li><a href="#citation">引用</a></li>
       <li><a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank" class="nav-cta"><i class="fas fa-database"></i> 数据集</a></li>
     </ul>
     <div class="lang-switch" role="navigation" aria-label="语言">
@@ -92,6 +90,7 @@
     </div>
 
     <div class="hero-buttons">
+      <a class="btn btn-arxiv" href="https://arxiv.org/abs/2602.11635" target="_blank" style="background:#b31b1b; color:#fff;"><i class="fas fa-file-alt"></i> arXiv</a>
       <a class="btn btn-github" href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> GitHub</a>
       <a class="btn btn-hf" href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank"><span style="font-size:1.1rem">&#129303;</span> HuggingFace</a>
       <a class="btn btn-outline-light" href="#leaderboard"><i class="fas fa-trophy"></i> 榜单</a>
@@ -754,7 +753,7 @@
       <div class="access-card">
         <div class="access-icon github"><i class="fab fa-github"></i></div>
         <h3>GitHub 仓库</h3>
-        <p>源代码、评测脚本、基准数据与文档。</p>
+        <p>源代码、基准数据与文档。</p>
         <a class="btn-sm btn-dark" href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> 在 GitHub 查看</a>
       </div>
       <div class="access-card">
@@ -780,67 +779,30 @@
       <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> 衍生作品（采用相同许可）</div>
       <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#fef2f2; border-radius:10px; border:1px solid #fecaca;"><i class="fas fa-times-circle" style="color:#ef4444; font-size:1.1rem;"></i> 商业用途（不允许）</div>
     </div>
-  </div>
-</section>
 
-<!-- ====== Authors ====== -->
-<section class="section section-alt" id="authors">
-  <div class="container">
-    <h2 class="section-title animate-on-scroll">作者</h2>
-    <div class="animate-on-scroll" style="max-width:860px; margin:0 auto; text-align:center; line-height:2.2;">
-      <p style="font-size:1.05rem; color:var(--text);">
-        <span style="font-weight:600;">Shuo Lu</span><sup>1*</sup>,&ensp;
-        <span style="font-weight:600;">Jianjie Cheng</span><sup>2*</sup>,&ensp;
-        <span style="font-weight:600;">Yinuo Xu</span><sup>1*</sup>,&ensp;
-        <span style="font-weight:600;">Yongcan Yu</span><sup>1*</sup>,&ensp;
-        <span style="font-weight:600;">Lijun Sheng</span><sup>1</sup>,&ensp;
-        <span style="font-weight:600;">Peijie Wang</span><sup>1</sup>,&ensp;
-        <span style="font-weight:600;">Siru Jiang</span><sup>1</sup>,&ensp;
-        <span style="font-weight:600;">Yongguan Hu</span><sup>1</sup>,&ensp;
-        <span style="font-weight:600;">Run Ling</span><sup>3</sup>,&ensp;
-        <span style="font-weight:600;">Yihua Shao</span><sup>4</sup>,&ensp;
-        <span style="font-weight:600;">Ao Ma</span><sup>5</sup>,&ensp;
-        <span style="font-weight:600;">Wei Feng</span><sup>5</sup>,&ensp;
-        <span style="font-weight:600;">Lingxiao He</span><sup>2</sup>,&ensp;
-        <span style="font-weight:600;">Meng Wang</span><sup>2</sup>,&ensp;
-        <span style="font-weight:600;">Qianlong Xie</span><sup>2</sup>,&ensp;
-        <span style="font-weight:600;">Xingxing Wang</span><sup>2</sup>,&ensp;
-        <span style="font-weight:600;">Nicu Sebe</span><sup>6</sup>,&ensp;
-        <span style="font-weight:600;">Ran He</span><sup>1,5</sup>,&ensp;
-        <span style="font-weight:600;">Jian Liang</span><sup>1,5&dagger;</sup>
-      </p>
-      <p style="font-size:0.88rem; color:var(--text-light); margin-top:16px; line-height:2;">
-        <sup>1</sup>NLPR &amp; MAIS, CASIA, 北京&emsp;
-        <sup>2</sup>美团 Meituan Inc., 北京&emsp;
-        <sup>3</sup>东北大学, 沈阳&emsp;
-        <sup>4</sup>CASIA, 北京&emsp;
-        <sup>5</sup>中国科学院大学 UCAS, 北京&emsp;
-        <sup>6</sup>特伦托大学, 意大利
-      </p>
-      <p style="font-size:0.85rem; color:var(--text-light); margin-top:8px;">
-        <sup>*</sup>同等贡献&emsp;<sup>&dagger;</sup>通讯作者
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ====== Citation ====== -->
-<section class="section section-alt" id="citation">
-  <div class="container">
-    <h2 class="section-title animate-on-scroll">引用</h2>
-    <p class="section-desc animate-on-scroll">若在研究中使用了 MathSpatial，请引用我们的论文：</p>
-    <div class="citation-block animate-on-scroll" id="citationBlock">
-      <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> 复制</button>
+    <details class="collapsible animate-on-scroll" style="margin-top:32px;" id="citation">
+      <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
+        <i class="fas fa-quote-left" style="margin-right:8px;"></i>引用 &mdash; BibTeX
+      </summary>
+      <div style="margin-top:16px;">
+        <p style="margin-bottom:12px; color:var(--text-light);">若在研究中使用了 MathSpatial，请引用我们的论文：</p>
+        <div class="citation-block" id="citationBlock" style="position:relative;">
+          <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> 复制</button>
 <pre>@article{lu2026mllms,
   title   = {Do MLLMs Really Understand Space? A Mathematical Reasoning Evaluation},
   author  = {Lu, Shuo and Cheng, Jianjie and Xu, Yinuo and
              Yu, Yongcan and Sheng, Lijun and Wang, Peijie and
              Jiang, Siru and Hu, Yongguan and Ling, Run and
-             Shao, Yihua and others},
+             Shao, Yihua and Ma, Ao and Feng, Wei and
+             He, Lingxiao and Wang, Meng and Xie, Qianlong and
+             Wang, Xingxing and Sebe, Nicu and He, Ran and
+             Liang, Jian},
   journal = {arXiv preprint arXiv:2602.11635},
   year    = {2026}
 }</pre>
-    </div>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -849,10 +811,10 @@
   <div class="container">
     <div class="footer-brand"><span>Math</span>Spatial</div>
     <div class="footer-links">
+      <a href="https://arxiv.org/abs/2602.11635" target="_blank"><i class="fas fa-file-alt"></i> arXiv</a>
       <a href="https://github.com/shuolucs/MathSpatial" target="_blank"><i class="fab fa-github"></i> GitHub</a>
       <a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank"><span>&#129303;</span> HuggingFace</a>
       <a href="#leaderboard"><i class="fas fa-trophy"></i> 榜单</a>
-      <a href="#citation"><i class="fas fa-quote-left"></i> 引用</a>
     </div>
     <p>MathSpatial &copy; 2026 &middot; CC BY-NC-SA 4.0 &middot; ACM Multimedia 2026</p>
   </div>
