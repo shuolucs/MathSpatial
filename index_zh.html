@@ -46,13 +46,32 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#overview">概览</a></li>
-      <li><a href="#statistics">统计</a></li>
-      <li><a href="#examples">示例</a></li>
-      <li><a href="#leaderboard">榜单</a></li>
-      <li><a href="#findings">主要发现</a></li>
-      <li><a href="#error-analysis">错误分析</a></li>
-      <li><a href="#annotations">标注</a></li>
-      <li><a href="#download">下载</a></li>
+      <li>
+        <a href="#statistics">数据集 <i class="fas fa-chevron-down"></i></a>
+        <ul class="nav-dropdown">
+          <li><a href="#statistics">统计</a></li>
+          <li><a href="#benchmark-comparison">基准对比</a></li>
+          <li><a href="#examples">示例</a></li>
+          <li><a href="#annotations">标注</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#leaderboard">结果 <i class="fas fa-chevron-down"></i></a>
+        <ul class="nav-dropdown">
+          <li><a href="#leaderboard">榜单</a></li>
+          <li><a href="#findings">主要发现</a></li>
+          <li><a href="#error-analysis">错误分析</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#download">资源 <i class="fas fa-chevron-down"></i></a>
+        <ul class="nav-dropdown">
+          <li><a href="#supplementary">补充材料</a></li>
+          <li><a href="#download">下载</a></li>
+          <li><a href="#license">许可协议</a></li>
+          <li><a href="#citation">引用</a></li>
+        </ul>
+      </li>
       <li><a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank" class="nav-cta"><i class="fas fa-database"></i> 数据集</a></li>
     </ul>
     <div class="lang-switch" role="navigation" aria-label="语言">
@@ -97,7 +116,8 @@
     </div>
 
     <p class="hero-team">
-      Shuo Lu &middot; Jianjie Cheng &middot; Yinuo Xu &middot; Yongcan Yu &middot; Lijun Sheng &middot; Peijie Wang &middot; Siru Jiang &middot; Yongguan Hu &middot; Run Ling &middot; Yihua Shao &middot; Ao Ma &middot; Wei Feng &middot; Lingxiao He &middot; Meng Wang &middot; Qianlong Xie &middot; Xingxing Wang &middot; Nicu Sebe &middot; Ran He &middot; Jian Liang
+      Shuo Lu<sup>*</sup> &middot; Jianjie Cheng<sup>*</sup> &middot; Yinuo Xu<sup>*</sup> &middot; Yongcan Yu<sup>*</sup> &middot; Lijun Sheng &middot; Peijie Wang &middot; Siru Jiang &middot; Yongguan Hu &middot; Run Ling &middot; Yihua Shao<br>
+      Ao Ma &middot; Wei Feng &middot; Lingxiao He &middot; Meng Wang &middot; Qianlong Xie &middot; Xingxing Wang &middot; Nicu Sebe &middot; Ran He &middot; Jian Liang<sup>&dagger;</sup>
     </p>
   </div>
 </section>
@@ -200,7 +220,7 @@
       </div>
     </div>
 
-    <h3 class="section-title animate-on-scroll" style="font-size:1.5rem; margin-top:56px;">与现有基准对比</h3>
+    <h3 class="section-title animate-on-scroll" id="benchmark-comparison" style="font-size:1.5rem; margin-top:56px;">与现有基准对比</h3>
     <p class="section-desc animate-on-scroll">MathSpatial 与数学及空间推理领域已有基准的对比。</p>
     <div class="comparison-wrapper animate-on-scroll">
       <table class="comparison-table">
@@ -779,15 +799,16 @@
       <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> 衍生作品（采用相同许可）</div>
       <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#fef2f2; border-radius:10px; border:1px solid #fecaca;"><i class="fas fa-times-circle" style="color:#ef4444; font-size:1.1rem;"></i> 商业用途（不允许）</div>
     </div>
+  </div>
+</section>
 
-    <details class="collapsible animate-on-scroll" style="margin-top:32px;" id="citation">
-      <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
-        <i class="fas fa-quote-left" style="margin-right:8px;"></i>引用 &mdash; BibTeX
-      </summary>
-      <div style="margin-top:16px;">
-        <p style="margin-bottom:12px; color:var(--text-light);">若在研究中使用了 MathSpatial，请引用我们的论文：</p>
-        <div class="citation-block" id="citationBlock" style="position:relative;">
-          <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> 复制</button>
+<!-- ====== Citation ====== -->
+<section class="section" id="citation">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">引用</h2>
+    <p class="section-desc animate-on-scroll">若在研究中使用了 MathSpatial，请引用我们的论文：</p>
+    <div class="citation-block animate-on-scroll" id="citationBlock" style="position:relative;">
+      <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> 复制</button>
 <pre>@article{lu2026mllms,
   title   = {Do MLLMs Really Understand Space? A Mathematical Reasoning Evaluation},
   author  = {Lu, Shuo and Cheng, Jianjie and Xu, Yinuo and
@@ -800,9 +821,7 @@
   journal = {arXiv preprint arXiv:2602.11635},
   year    = {2026}
 }</pre>
-        </div>
-      </div>
-    </details>
+    </div>
   </div>
 </section>
 

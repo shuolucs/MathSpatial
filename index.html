@@ -29,6 +29,7 @@
         <a href="#statistics">Dataset <i class="fas fa-chevron-down"></i></a>
         <ul class="nav-dropdown">
           <li><a href="#statistics">Statistics</a></li>
+          <li><a href="#benchmark-comparison">Benchmark Comparison</a></li>
           <li><a href="#examples">Task Examples</a></li>
           <li><a href="#annotations">Annotations</a></li>
         </ul>
@@ -46,9 +47,10 @@
         <ul class="nav-dropdown">
           <li><a href="#download">Download</a></li>
           <li><a href="#license">License</a></li>
+          <li><a href="#citation">Citation</a></li>
+          <li><a href="#supplementary">Supplementary</a></li>
         </ul>
       </li>
-      <li><a href="#supplementary">Supplementary</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
       <i class="fas fa-bars"></i>
@@ -85,7 +87,10 @@
       <a class="btn btn-outline-light" href="#leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a>
     </div>
 
-    <p class="hero-team">Shuo Lu &middot; Jianjie Cheng &middot; Yinuo Xu &middot; Yongcan Yu &middot; Lijun Sheng &middot; Peijie Wang &middot; Siru Jiang &middot; Yongguan Hu &middot; Run Ling &middot; Yihua Shao &middot; Ao Ma &middot; Wei Feng &middot; Lingxiao He &middot; Meng Wang &middot; Qianlong Xie &middot; Xingxing Wang &middot; Nicu Sebe &middot; Ran He &middot; Jian Liang</p>
+    <p class="hero-team">
+      Shuo Lu<sup>*</sup> &middot; Jianjie Cheng<sup>*</sup> &middot; Yinuo Xu<sup>*</sup> &middot; Yongcan Yu<sup>*</sup> &middot; Lijun Sheng &middot; Peijie Wang &middot; Siru Jiang &middot; Yongguan Hu &middot; Run Ling &middot; Yihua Shao<br>
+      Ao Ma &middot; Wei Feng &middot; Lingxiao He &middot; Meng Wang &middot; Qianlong Xie &middot; Xingxing Wang &middot; Nicu Sebe &middot; Ran He &middot; Jian Liang<sup>&dagger;</sup>
+    </p>
   </div>
 </section>
 
@@ -191,7 +196,7 @@
       </div>
     </div>
 
-    <h3 class="section-title animate-on-scroll" style="font-size:1.5rem; margin-top:56px;">Benchmark Comparison</h3>
+    <h3 class="section-title animate-on-scroll" id="benchmark-comparison" style="font-size:1.5rem; margin-top:56px;">Benchmark Comparison</h3>
     <p class="section-desc animate-on-scroll">MathSpatial vs. existing benchmarks in mathematical and spatial reasoning.</p>
     <div class="comparison-wrapper animate-on-scroll">
       <table class="comparison-table">
@@ -684,15 +689,16 @@
       <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f0fdf4; border-radius:10px; border:1px solid #bbf7d0;"><i class="fas fa-check-circle" style="color:#22c55e; font-size:1.1rem;"></i> Derivative works (same license)</div>
       <div style="display:flex; align-items:center; gap:10px; padding:12px 16px; background:#fef2f2; border-radius:10px; border:1px solid #fecaca;"><i class="fas fa-times-circle" style="color:#ef4444; font-size:1.1rem;"></i> Commercial use</div>
     </div>
+  </div>
+</section>
 
-    <details class="collapsible animate-on-scroll" style="margin-top:32px;" id="citation">
-      <summary style="cursor:pointer; font-size:1.05rem; font-weight:600; color:var(--primary); padding:12px 16px; background:var(--bg-alt); border-radius:var(--radius); border:1px solid var(--border);">
-        <i class="fas fa-quote-left" style="margin-right:8px;"></i>Citation &mdash; BibTeX
-      </summary>
-      <div style="margin-top:16px;">
-        <p style="margin-bottom:12px; color:var(--text-light);">If you use MathSpatial in your research, please cite our paper:</p>
-        <div class="citation-block" id="citationBlock" style="position:relative;">
-          <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> Copy</button>
+<!-- ====== Citation ====== -->
+<section class="section" id="citation">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">Citation</h2>
+    <p class="section-desc animate-on-scroll">If you use MathSpatial in your research, please cite our paper:</p>
+    <div class="citation-block animate-on-scroll" id="citationBlock" style="position:relative;">
+      <button class="copy-btn" onclick="copyCitation()"><i class="fas fa-copy"></i> Copy</button>
 <pre>@article{lu2026mllms,
   title   = {Do MLLMs Really Understand Space? A Mathematical Reasoning Evaluation},
   author  = {Lu, Shuo and Cheng, Jianjie and Xu, Yinuo and
@@ -705,9 +711,7 @@
   journal = {arXiv preprint arXiv:2602.11635},
   year    = {2026}
 }</pre>
-        </div>
-      </div>
-    </details>
+    </div>
   </div>
 </section>
 
