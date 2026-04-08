@@ -48,9 +48,10 @@
           <li><a href="#download">Download</a></li>
           <li><a href="#license">License</a></li>
           <li><a href="#citation">Citation</a></li>
-          <li><a href="#supplementary">Supplementary</a></li>
         </ul>
       </li>
+      <li><a href="#supplementary">Supplementary</a></li>
+      <li><a href="https://huggingface.co/datasets/shuolucs/MathSpatial" target="_blank" class="nav-cta"><i class="fas fa-database"></i> Dataset</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
       <i class="fas fa-bars"></i>
@@ -291,6 +292,68 @@
       </div>
     </details>
 
+  </div>
+</section>
+
+<!-- ====== Atomic Annotations ====== -->
+<section class="section section-alt" id="annotations">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">Atomic <span class="highlight">Annotations</span></h2>
+    <p class="section-desc animate-on-scroll">
+      Every problem in MathSpatial-Corpus is annotated with structured reasoning traces decomposing spatial reasoning into three atomic operations: <strong>Correlate</strong>, <strong>Constrain</strong>, and <strong>Infer</strong>.
+    </p>
+
+    <div class="srt-ops animate-on-scroll">
+      <div class="srt-op correlate">
+        <div class="op-symbol">C</div>
+        <h4>Correlate</h4>
+        <p>Establish cross-view correspondences between geometric features.</p>
+      </div>
+      <div class="srt-op constrain">
+        <div class="op-symbol">K</div>
+        <h4>Constrain</h4>
+        <p>Apply geometric rules, projection constraints, and consistency conditions.</p>
+      </div>
+      <div class="srt-op infer">
+        <div class="op-symbol">I</div>
+        <h4>Infer</h4>
+        <p>Deduce hidden attributes, measurements, or final answers from evidence.</p>
+      </div>
+    </div>
+
+    <div class="two-col animate-on-scroll">
+      <div>
+        <div class="img-showcase">
+          <img src="static/images/fig_srt_analysis.png?v=1775455887" alt="Atomic Operation Analysis" loading="lazy">
+          <p class="img-caption">
+            (a) Atomic operation distribution: Infer ~42% &gt; Correlate ~33% &gt; Constrain ~25%.
+            (b) Average trace length: 5.1 steps.
+          </p>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:20px; font-weight:700;">Trace Format Example</h3>
+        <div class="code-block">
+<span class="bracket">{</span>
+  <span class="key">"reasoning"</span>: <span class="bracket">[</span>
+    <span class="bracket">{</span>
+      <span class="key">"op"</span>: <span class="str">"Correlate"</span>,
+      <span class="key">"step"</span>: <span class="str">"The front and left views are identical isosceles triangles."</span>
+    <span class="bracket">}</span>,
+    <span class="bracket">{</span>
+      <span class="key">"op"</span>: <span class="str">"Constrain"</span>,
+      <span class="key">"step"</span>: <span class="str">"The top view is a circle, constraining the base to be circular."</span>
+    <span class="bracket">}</span>,
+    <span class="bracket">{</span>
+      <span class="key">"op"</span>: <span class="str">"Infer"</span>,
+      <span class="key">"step"</span>: <span class="str">"A solid with triangular projections and circular top is a cone."</span>
+    <span class="bracket">}</span>
+  <span class="bracket">]</span>,
+  <span class="key">"final_answer"</span>: <span class="str">"C"</span>
+<span class="bracket">}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -585,68 +648,6 @@
         <i class="fas fa-lightbulb"></i> Key Insight
       </div>
       <p>The two core challenges &mdash; enforcing low-level geometric consistency and sustaining coherent multi-step reasoning &mdash; remain largely unsolved by current MLLMs. The fine-grained error taxonomy provides a diagnostic foundation for targeted improvements.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ====== Atomic Annotations ====== -->
-<section class="section section-alt" id="annotations">
-  <div class="container">
-    <h2 class="section-title animate-on-scroll">Atomic <span class="highlight">Annotations</span></h2>
-    <p class="section-desc animate-on-scroll">
-      Every problem in MathSpatial-Corpus is annotated with structured reasoning traces decomposing spatial reasoning into three atomic operations: <strong>Correlate</strong>, <strong>Constrain</strong>, and <strong>Infer</strong>.
-    </p>
-
-    <div class="srt-ops animate-on-scroll">
-      <div class="srt-op correlate">
-        <div class="op-symbol">C</div>
-        <h4>Correlate</h4>
-        <p>Establish cross-view correspondences between geometric features.</p>
-      </div>
-      <div class="srt-op constrain">
-        <div class="op-symbol">K</div>
-        <h4>Constrain</h4>
-        <p>Apply geometric rules, projection constraints, and consistency conditions.</p>
-      </div>
-      <div class="srt-op infer">
-        <div class="op-symbol">I</div>
-        <h4>Infer</h4>
-        <p>Deduce hidden attributes, measurements, or final answers from evidence.</p>
-      </div>
-    </div>
-
-    <div class="two-col animate-on-scroll">
-      <div>
-        <div class="img-showcase">
-          <img src="static/images/fig_srt_analysis.png?v=1775455887" alt="Atomic Operation Analysis" loading="lazy">
-          <p class="img-caption">
-            (a) Atomic operation distribution: Infer ~42% &gt; Correlate ~33% &gt; Constrain ~25%.
-            (b) Average trace length: 5.1 steps.
-          </p>
-        </div>
-      </div>
-      <div>
-        <h3 style="margin-bottom:20px; font-weight:700;">Trace Format Example</h3>
-        <div class="code-block">
-<span class="bracket">{</span>
-  <span class="key">"reasoning"</span>: <span class="bracket">[</span>
-    <span class="bracket">{</span>
-      <span class="key">"op"</span>: <span class="str">"Correlate"</span>,
-      <span class="key">"step"</span>: <span class="str">"The front and left views are identical isosceles triangles."</span>
-    <span class="bracket">}</span>,
-    <span class="bracket">{</span>
-      <span class="key">"op"</span>: <span class="str">"Constrain"</span>,
-      <span class="key">"step"</span>: <span class="str">"The top view is a circle, constraining the base to be circular."</span>
-    <span class="bracket">}</span>,
-    <span class="bracket">{</span>
-      <span class="key">"op"</span>: <span class="str">"Infer"</span>,
-      <span class="key">"step"</span>: <span class="str">"A solid with triangular projections and circular top is a cone."</span>
-    <span class="bracket">}</span>
-  <span class="bracket">]</span>,
-  <span class="key">"final_answer"</span>: <span class="str">"C"</span>
-<span class="bracket">}</span>
-        </div>
-      </div>
     </div>
   </div>
 </section>
