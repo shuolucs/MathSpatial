@@ -196,7 +196,6 @@ MathSpatial/
 ├── DATASHEET.md                 # Full statistical datasheet
 ├── GLOSSARY.md                  # Chinese geometric annotation glossary
 ├── LICENSE                      # CC BY-NC-SA 4.0
-├── dataset_statistics.json
 ├── assets/                      # Figures and visualizations
 ├── benchmark/                   # MathSpatial-Bench (2,000 problems)
 │   └── questionXXXXX/
@@ -206,9 +205,6 @@ MathSpatial/
 │   └── questionXXXXX/
 │       ├── data.json
 │       └── images/
-└── evaluation/                  # Evaluation scripts
-    ├── build_dataset.py         # Dataset construction pipeline
-    └── analyze_results.py       # Result analysis tools
 ```
 
 ### Loading Data
